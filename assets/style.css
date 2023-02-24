@@ -1,0 +1,94 @@
+
+*{
+    margin: 0%;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper-div{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    min-height: 100px;
+    margin: auto;
+}
+
+#logo-div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50px;
+    background-color: lightgrey;
+    align-items: center;
+    padding-left: 2%;
+}
+#nav-div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30px;
+    background-color: lightgrey;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#header-banner{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100px;
+    background-color: lightgrey;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#main-div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 400px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+#sidebar-div{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20%;
+    background-color: lightgrey;
+    justify-content: top;
+    align-items: top;
+}
+#body-area{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 75%;
+    background-color: lightgrey;
+    justify-content: center;
+    align-items: center;
+}
+#footer-div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50px;
+    background-color: lightgrey;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    font: white;
+}
+h2{
+    text-align: center;
+    font:white;
+}
+.bttn{
+    align-items: center;
+}
