@@ -1,6 +1,6 @@
 // Variable Declarations
 
-var previousCocktails = JSON.parse(localStorage.getItem(" /KEY/  "));
+var previousCocktails = JSON.parse(localStorage.getItem("cocktails")) || [];
 var savedDrinks = document.getElementById("savedDrinks");
 var producedDrink = /reference pointing to drink suggestion/;
 
@@ -23,8 +23,8 @@ function drinkHistory() {
     return;
   } else {
     previousCocktails.push(searchResult);
-    localStorage.setItem(" /KEY/ ", JSON.stringify(previousCocktails));
-    previousCocktails = JSON.parse(localStorage.getItem(" /KEY/ "));
+    localStorage.setItem("cocktails", JSON.stringify(previousCocktails));
+    previousCocktails = JSON.parse(localStorage.getItem("cocktails"));
     savedDrinks.textContent = "";
 
     for (i = 0; i < previousCocktails.length; i++) {
