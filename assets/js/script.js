@@ -1,4 +1,4 @@
-// Variable Declarations
+//Variable Declarations
 
 var previousCocktails = JSON.parse(localStorage.getItem("cocktails")) || [];
 var savedDrinks = document.getElementById("savedDrinks");
