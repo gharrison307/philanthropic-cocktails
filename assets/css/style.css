@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0%;
   padding: 0px;
@@ -153,4 +155,43 @@ h2 {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 10px;
+}
+
+.popup{
+  background-color: aliceblue;
+  width: 450px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+}
+.popup button{
+  display: block;
+  margin: 0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.popup p{
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+}
+
+a{
+  display: block;
+  width: 150px;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  text-decoration: none;
 }
