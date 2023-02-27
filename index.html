@@ -54,191 +54,81 @@
         <div id="savedDrinks"></div>
       </div>
 
-        <div id="body-area">body area</div>
-      </div>
+      <div id="body-area">body area</div>
+    </div>
 
-      <!-- Modals -->
-      <!-- Liquor modal -->
-      <div
-        class="modal fade"
-        id="modal-1"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">Choose your Liquor</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <select
-                id="liquor-select"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option selected>Click to select</option>
-                <option value="1">Gin</option>
-                <option value="2">Rum</option>
-                <option value="3">Tequila</option>
-                <option value="4">Vodka</option>
-                <option value="5">Whisky</option>
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button
-                id="savBtn"
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Save
-              </button>
-            </div>
+    <!-- Modals -->
+    <!-- Liquor modal -->
+    <div class="modal fade" id="modal-1" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Choose your Liquor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <div class="modal-body">
+            <select id="liquor-select" class="form-select" aria-label="Default select example">
+              <option selected>Click to select</option>
+              <option value="1">Gin</option>
+              <option value="2">Rum</option>
+              <option value="3">Tequila</option>
+              <option value="4">Vodka</option>
+              <option value="5">Whisky</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button id="savBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Save
+            </button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Ingredient modal -->
+    <!-- Ingredient modal -->
 
-      <div
-        class="modal fade"
-        id="modal-2"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">
-                Choose your Ingredients
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="lime"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  lime
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="lemon"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  lemon
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="mint"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  mint
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="tonic"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  tonic
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="soda"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  soda
-                </label>
-              </div>
-              <div class="modal-footer">
-                <button
-                  id="savBtn"
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
+    <div class="modal fade" id="modal-2" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">
+              Choose your Ingredients
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
-        </div>
-      </div>
-
-      <!-- Donation Modal -->
-
-      <div
-        class="modal fade"
-        id="modal-3"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">Choose your Donation</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
+          <div class="modal-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="lime" />
+              <label class="form-check-label" for="flexCheckDefault">
+                lime
+              </label>
             </div>
-            <div class="modal-body">
-              <select
-                id="donation-select"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option selected>Click to select</option>
-                <option value="1">Animals</option>
-                <option value="2">Environment</option>
-                <option value="3">Humanitarian</option>
-                <option value="4">World Hunger</option>
-                <option value="5">Education</option>
-              </select>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="lemon" />
+              <label class="form-check-label" for="flexCheckDefault">
+                lemon
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="mint" />
+              <label class="form-check-label" for="flexCheckDefault">
+                mint
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="tonic" />
+              <label class="form-check-label" for="flexCheckDefault">
+                tonic
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="soda" />
+              <label class="form-check-label" for="flexCheckDefault">
+                soda
+              </label>
             </div>
             <div class="modal-footer">
-              <button
-                id="savBtn"
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
+              <button id="savBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 Save
               </button>
             </div>
@@ -247,40 +137,68 @@
       </div>
     </div>
 
-    <div class="container" id="footer-div">
-      <h3>Son's Of JSON</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
-        asperiores. Tempore totam ullam nam?
-      </p>
-      <ul class="socials">
-        <li>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-google"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-linkedin-square"></i></a>
-        </li>
-      </ul>
-      <div class="footer-bottom">
-        <p>copyright &copy;2023 SonsofJson. designed by<span>Team</span></p>
-      </div>
+    <!-- Donation Modal -->
 
-      <script src="./assets/js/script.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"
-      ></script>
+    <div class="modal fade" id="modal-3" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Choose your Donation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <div class="modal-body">
+            <select id="donation-select" class="form-select" aria-label="Default select example">
+              <option selected>Click to select</option>
+              <option value="1">Animals</option>
+              <option value="2">Environment</option>
+              <option value="3">Humanitarian</option>
+              <option value="4">World Hunger</option>
+              <option value="5">Education</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button id="savBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="container" id="footer-div">
+    <h3>Son's Of JSON</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+      asperiores. Tempore totam ullam nam?
+    </p>
+    <ul class="socials">
+      <li>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-google"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-linkedin-square"></i></a>
+      </li>
+    </ul>
+    <div class="footer-bottom">
+      <p>copyright &copy;2023 SonsofJson. designed by<span>Team</span></p>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+  </div>
+</body>
+
 </html>

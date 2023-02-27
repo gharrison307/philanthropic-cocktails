@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+
+:root {
+  --extra-light: #f8ede3;
+  --light: #dfd3c3;
+  --medium-light: #d0b8a8;
+  --medium: #7d6e83;
+  --medium-dark: #65647c;
+  --dark: #222831;
+  --font-fam-1: "Gloock", serif;
+}
+
 * {
   margin: 0%;
   padding: 0px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-fam-1);
   box-sizing: border-box;
 }
 body {
@@ -150,4 +162,37 @@ h2 {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 10px;
+}
+
+.opacity {
+  opacity: 0.4;
+}
+
+div#option-one {
+  background-color: var(--medium);
+  border-color: aliceblue;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 22px;
+}
+
+div#option-two {
+  background-color: var(--medium);
+  border-color: aliceblue;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 22px;
+}
+
+#searchBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--medium);
+  border-color: aliceblue;
+  width: 10%;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 18px;
+}
+
+input#selections {
+  max-width: 43%;
 }
