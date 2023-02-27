@@ -87,9 +87,9 @@ nav{
 
 #sidebar-div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-basis: 20%;
-  background-color: lightgrey;
+  background-color: #dfd3c3;
   justify-content: top;
   align-items: top;
 }
@@ -98,7 +98,7 @@ nav{
   display: flex;
   flex-direction: row;
   flex-basis: 75%;
-  background-color: lightgrey;
+  background-color: #f8ede3;
   justify-content: center;
   align-items: center;
 }
@@ -168,18 +168,42 @@ h2 {
   text-align: center;
   width: 100%;
   font-style: italic;
-  background-color: lightblue;
+  background-color: #dfd3c3;
   letter-spacing: 1px;
 }
 
-#savedDrinks {
+.savedDrinks {
   display: block;
   padding: 14px 24px;
   border: 0 none;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   text-transform: uppercase;
   margin: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f8ede3;
+  border-radius: 25px;
+}
+
+.savedDrinks:hover {
+  background-color: #7d6e83;
+  color: white;
+}
+
+#pickedName {
+  position: relative;
+}
+
+#pickedIngredients {
+  position: relative;
+}
+
+#pickedPicture {
+  position: relative;
+}
+
+.largeDisplay {
+  background-color: #f8ede3;
 }
 
 .opacity {
