@@ -7,8 +7,6 @@ var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
 var addedDrink;
 
-var mainAreaEL = document.getElementById('body-area');
-
 //Modal elements
 var modalInput = document.getElementById("text-cause");
 var modalSearch = document.getElementById("search-cause");
@@ -29,8 +27,8 @@ var optionTwo = document.getElementById("option-two");
     - value : String - the filer of search value to pass with parameter
 */
 async function fetchCocktails(endpoint, parameter, value) {
-  var baseURL = "https://www.thecocktaildb.com/api/json/v1/1/";
-  var requestURL;
+    var baseURL = "https://www.thecocktaildb.com/api/json/v1/1/";
+    var requestURL;
 
     if (endpoint === "random") {
         requestURL = baseURL + "random.php";
@@ -38,7 +36,7 @@ async function fetchCocktails(endpoint, parameter, value) {
         requestURL = baseURL + endpoint + ".php?" + parameter + "=" + value;
     }
 
-  return await fetch(requestURL);
+    return await fetch(requestURL);
 }
 
 /* 
@@ -49,56 +47,56 @@ async function fetchCocktails(endpoint, parameter, value) {
     Example: fetchDonations("climate")
 */
 function fetchDonatios(cause) {
-    var APIkey="pk_live_8a72071c11204646a37b2520e4194dad";
-    var requestURL = "https://partners.every.org/v0.2/search/" + cause + "?apiKey=" +APIkey;
+    var APIkey = "pk_live_8a72071c11204646a37b2520e4194dad";
+    var requestURL = "https://partners.every.org/v0.2/search/" + cause + "?apiKey=" + APIkey;
     fetch(requestURL)
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(data){
-        console.log(data);
-        
-        var orderedList = document.createElement('ol');
-        orderedList.setAttribute("class", "list-group list-group-numbered w-100 p-3");
-        nonprofitList.append(orderedList);
-        for (let index = 0; index < data.nonprofits.length; index++) {
-            var li = document.createElement("li");
-            li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-start");
-            orderedList.append(li);
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
 
-            //Name and description container
-            var contentDiv = document.createElement("div");
-            contentDiv.setAttribute("class", "ms-2 me-auto");
+            var orderedList = document.createElement('ol');
+            orderedList.setAttribute("class", "list-group list-group-numbered w-100 p-3");
+            nonprofitList.append(orderedList);
+            for (let index = 0; index < data.nonprofits.length; index++) {
+                var li = document.createElement("li");
+                li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-start");
+                orderedList.append(li);
 
-            //Cooktail Name
-            var subheading = document.createElement("div");
-            subheading.textContent = data.nonprofits[index].name;
-            subheading.setAttribute("class", "fs-5 fw-bolder");
-            contentDiv.appendChild(subheading);
+                //Name and description container
+                var contentDiv = document.createElement("div");
+                contentDiv.setAttribute("class", "ms-2 me-auto");
 
-            //image
-            var image = document.createElement("img");
-            image.setAttribute("src", data.nonprofits[index].logoUrl);
-            image.setAttribute("class", "img-thumbnail rounded-4 border border-secondary");
-            image.style = "width: 50px; height: 50px;";
+                //Cooktail Name
+                var subheading = document.createElement("div");
+                subheading.textContent = data.nonprofits[index].name;
+                subheading.setAttribute("class", "fs-5 fw-bolder");
+                contentDiv.appendChild(subheading);
 
-            //Description
-            var desciption = document.createElement("p");
-            desciption.setAttribute("class", "fst-italic");
-            desciption.textContent = data.nonprofits[index].description;
-            contentDiv.appendChild(desciption);
+                //image
+                var image = document.createElement("img");
+                image.setAttribute("src", data.nonprofits[index].logoUrl);
+                image.setAttribute("class", "img-thumbnail rounded-4 border border-secondary");
+                image.style = "width: 50px; height: 50px;";
 
-            //last append
-            li.append(contentDiv, image);
-        }
+                //Description
+                var desciption = document.createElement("p");
+                desciption.setAttribute("class", "fst-italic");
+                desciption.textContent = data.nonprofits[index].description;
+                contentDiv.appendChild(desciption);
 
-    })
+                //last append
+                li.append(contentDiv, image);
+            }
+
+        })
 }
 
-modalSearch.addEventListener("click", function(){
+modalSearch.addEventListener("click", function () {
     if (modalInput.value != null) {
         removeElements(nonprofitList);
-        fetchDonatios(modalInput.value); 
+        fetchDonatios(modalInput.value);
     } else {
         window.alert("Please eneter a cause you would like to support");
     }
@@ -110,36 +108,36 @@ function drinkStorage() {
     console.log(previousCocktails.indexOf(searchResult));
     console.log(searchResult);
 
-  if (searchResult === "") {
-    return;
-  } else if (previousCocktails.indexOf(searchResult) >= 0) {
-    return;
-  } else {
-    previousCocktails.push(searchResult);
-    localStorage.setItem("cocktails", JSON.stringify(previousCocktails));
-    previousCocktails = JSON.parse(localStorage.getItem("cocktails"));
-    savedDrinks.textContent = "";
+    if (searchResult === "") {
+        return;
+    } else if (previousCocktails.indexOf(searchResult) >= 0) {
+        return;
+    } else {
+        previousCocktails.push(searchResult);
+        localStorage.setItem("cocktails", JSON.stringify(previousCocktails));
+        previousCocktails = JSON.parse(localStorage.getItem("cocktails"));
+        savedDrinks.textContent = "";
 
-    console.log(previousCocktails.length);
-    drinkHistory();
-  }
+        console.log(previousCocktails.length);
+        drinkHistory();
+    }
 }
 // <--------DRINK HISTORY FUNCTION--------------->
 function drinkHistory() {
-  for (i = 0; i < previousCocktails.length; i++) {
-    var addedDrink = document.createElement("button");
-    addedDrink.textContent = previousCocktails[i];
-    addedDrink.className = "savedDrinks";
-    savedDrinks.appendChild(addedDrink);
-    console.log(addedDrink);
+    for (i = 0; i < previousCocktails.length; i++) {
+        var addedDrink = document.createElement("button");
+        addedDrink.textContent = previousCocktails[i];
+        addedDrink.className = "savedDrinks";
+        savedDrinks.appendChild(addedDrink);
+        console.log(addedDrink);
 
-    // <------- EventListener for side buttons ---->
-    // addedDrink.addEventListener("click", function (event) {
-    //   producedDrink = event.target.innerText.toLowerCase();
-    //   console.log(producedDrink);
-    //   largeDisplay();
-    // });
-  }
+        // <------- EventListener for side buttons ---->
+        // addedDrink.addEventListener("click", function (event) {
+        //   producedDrink = event.target.innerText.toLowerCase();
+        //   console.log(producedDrink);
+        //   largeDisplay();
+        // });
+    }
 }
 
 //Display a list of cocktails
@@ -147,7 +145,7 @@ async function listCocktails(data, endpoint) {
 
     var orderedList = document.createElement('ol');
     orderedList.setAttribute("class", "list-group list-group-numbered w-100 p-3");
-    mainAreaEL.append(orderedList);
+    mainEL.append(orderedList);
 
     for (let index = 0; index < data.drinks.length; index++) {
         var li = document.createElement("li");
@@ -224,162 +222,143 @@ function customTrim(description) {
     return description;
 }
 
-window.addEventListener("load",function(){
-    setTimeout(function open(event){
-        document.querySelector(".popup").style.display = "block";
-    },2000)
-});
-
 // <--------LARGE DISPLAY FUNCTION--------------->
+function largeDisplay(data) {
+    //   Large Display Card
+    var div1 = document.createElement("div");
+    div1.setAttribute("class", "card mb-3");
+    div1.setAttribute("style", "max-width: 100% largeDisplay");
+    div1.setAttribute("style", "opacity: 1");
+    mainEl.appendChild(div1);
 
-//   Test variable
-producedDrink = "rum";
+    var div2 = document.createElement("div");
+    div2.setAttribute("class", "row g-0 largeDisplay");
+    div1.appendChild(div2);
 
-function largeDisplay() {
-  //   Large Display Card
-  var div1 = document.createElement("div");
-  div1.setAttribute("class", "card mb-3");
-  div1.setAttribute("style", "max-width: 100% largeDisplay");
-  div1.setAttribute("style", "opacity: 1");
-  mainEl.appendChild(div1);
+    var div3Text = document.createElement("div");
+    div3Text.setAttribute("class", "col-md-6 largeDisplay");
+    div2.appendChild(div3Text);
 
-  var div2 = document.createElement("div");
-  div2.setAttribute("class", "row g-0 largeDisplay");
-  div1.appendChild(div2);
+    var div4 = document.createElement("div");
+    div4.setAttribute("class", "card-body largeDisplay");
+    div3Text.appendChild(div4);
 
-  var div3Text = document.createElement("div");
-  div3Text.setAttribute("class", "col-md-6 largeDisplay");
-  div2.appendChild(div3Text);
+    //   Drink Title Element
+    var drinkNameEl = document.createElement("h3");
+    drinkNameEl.setAttribute("class", "card-title largeDisplay");
+    drinkNameEl.setAttribute("style", "text-decoration: underline");
+    div4.appendChild(drinkNameEl);
 
-  var div4 = document.createElement("div");
-  div4.setAttribute("class", "card-body largeDisplay");
-  div3Text.appendChild(div4);
+    //   Drink Ingredients Element
+    var ingredientsEl = document.createElement("ul");
+    ingredientsEl.setAttribute("class", "card-text");
+    div4.appendChild(ingredientsEl);
 
-  //   Drink Title Element
-  var drinkNameEl = document.createElement("h3");
-  drinkNameEl.setAttribute("class", "card-title largeDisplay");
-  drinkNameEl.setAttribute("style", "text-decoration: underline");
-  div4.appendChild(drinkNameEl);
+    // Drink Instructions Element
+    var drinkDescriptionEl = document.createElement("p");
+    div4.appendChild(drinkDescriptionEl);
 
-  //   Drink Ingredients Element
-  var ingredientsEl = document.createElement("ul");
-  ingredientsEl.setAttribute("class", "card-text");
-  div4.appendChild(ingredientsEl);
+    divImg = document.createElement("div");
+    divImg.setAttribute("class", "col-md-6");
+    div2.appendChild(divImg);
 
-  // Drink Instructions Element
-  var drinkDescriptionEl = document.createElement("p");
-  div4.appendChild(drinkDescriptionEl);
+    //   Drink Image Element
+    var drinkImgEl = document.createElement("img");
+    drinkImgEl.setAttribute("class", "img-fluid rounded");
+    divImg.appendChild(drinkImgEl);
 
-  divImg = document.createElement("div");
-  divImg.setAttribute("class", "col-md-6");
-  div2.appendChild(divImg);
+    // Drink Name
+    console.log(data.drinks[0].strDrink);
+    drinkNameEl.textContent = data.drinks[0].strDrink;
 
-  //   Drink Image Element
-  var drinkImgEl = document.createElement("img");
-  drinkImgEl.setAttribute("class", "img-fluid rounded");
-  divImg.appendChild(drinkImgEl);
+    //   Ingredients
+    var ingredientsList = document.createElement("ul");
+    ingredientsEl.appendChild(ingredientsList);
 
-  // fetching ID data on chosen drink
-  fetchCocktails("search", "s", producedDrink)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
+    //Runs though ingredients and stops when "null" also added measurements
+    var i = 1;
+    while (data.drinks[0]["strIngredient" + i] != null) {
+        var listItems = document.createElement("li");
+        listItems.textContent =
+        data.drinks[0]["strMeasure" + i] +
+        data.drinks[0]["strIngredient" + i];
+        console.log(ingredientsList);
+        ingredientsList.appendChild(listItems);
+        i++;
+    }
 
-      // redefinining variable as id number
-      producedDrink = data.drinks[0].idDrink;
-      console.log([producedDrink]);
+    // Drink Image
+    drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
+    console.log(data.drinks[0].strDrinkThumb);
 
-      // fetching full drink details based on ID
-      fetchCocktails("lookup", "i", producedDrink)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
+    //   Drink Instructions
+    drinkDescriptionEl.textContent = "Instructions: " + data.drinks[0].strInstructions;
 
-          // Drink Name
-          console.log(data.drinks[0].strDrink);
-          drinkNameEl.textContent = data.drinks[0].strDrink;
-
-          //   Ingredients
-          var ingredientsList = document.createElement("ul");
-          ingredientsEl.appendChild(ingredientsList);
-
-          //Runs though ingredients and stops when "null" also added measurements
-          var i = 1;
-          while (data.drinks[0]["strIngredient" + i] != null) {
-            var listItems = document.createElement("li");
-            listItems.textContent =
-              data.drinks[0]["strMeasure" + i] +
-              data.drinks[0]["strIngredient" + i];
-            console.log(ingredientsList);
-            ingredientsList.appendChild(listItems);
-            i++;
-          }
-
-          // Drink Image
-          drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
-          console.log(data.drinks[0].strDrinkThumb);
-
-          //   Drink Instructions
-          drinkDescriptionEl.textContent = [
-            "Instructions: " + data.drinks[0].strInstructions,
-          ];
-        });
-
-      console.log(producedDrink);
-
-      drinkStorage();
-      removeElements(mainAreaEL);
-      listCocktails(data,endPoint);
-    });
+    drinkStorage();  
 }
 
 searchButton.addEventListener("click", function () {
-  if (searchBar.value != "") {
-    search(searchBar.dataset.search, searchBar.value);
-  } else {
-    window.alert("Please enter a ingredient or cocktail name.");
-  }
+    if (searchBar.value != "") {
+        search(searchBar.dataset.search, searchBar.value);
+    } else {
+        window.alert("Please enter a ingredient or cocktail name.");
+    }
 });
 
 //Change opacity of the div the user selects
 var addClass = "opacity";
 var change = $(".card").on("click", function () {
-  change.addClass(addClass);
-  $(this).removeClass(addClass);
+    change.addClass(addClass);
+    $(this).removeClass(addClass);
 });
 
 //Changes placeholder text based on click
 optionOne.addEventListener("click", function () {
-  $("#selections").attr("placeholder", "Type to search by cocktails...");
-  searchBar.dataset.search = "cocktail";
+    $("#selections").attr("placeholder", "Type to search by cocktails...");
+    searchBar.dataset.search = "cocktail";
 });
 
 optionTwo.addEventListener("click", function () {
-  $("#selections").attr("placeholder", "Type to search by ingredients...");
-  searchBar.dataset.search = "ingredient";
+    $("#selections").attr("placeholder", "Type to search by ingredients...");
+    searchBar.dataset.search = "ingredient";
 });
 
 //Function to fetch cocktails based on cocktail name or ingredient
 function search(type, inputText) {
-  var endPoint = "";
-  var parameter = "";
-  if (type == "cocktail") {
-    endPoint = "search";
-    parameter = "s";
-  } else {
-    endPoint = "filter";
-    parameter = "i";
-  }
+    var endPoint = "";
+    var parameter = "";
+    if (type == "cocktail") {
+        endPoint = "search";
+        parameter = "s";
+    } else {
+        endPoint = "filter";
+        parameter = "i";
+    }
 
-  fetchCocktails(endPoint, parameter, inputText)
+    fetchCocktails(endPoint, parameter, inputText)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            removeElements(mainEL);
+            listCocktails(data, endPoint);
+        });
+}
+
+//DO when page ready
+$(function(){
+    //displaying modal
+    $('#ageModal').modal('show');
+
+    //Loading a random cocktail
+    fetchCocktails("random")
     .then(function (response) {
-      return response.json();
+        return response.json();
     })
     .then(function (data) {
-      console.log(data);
+        console.log(data);
+        removeElements(mainEL);
+        largeDisplay(data);
     });
-}
+})
