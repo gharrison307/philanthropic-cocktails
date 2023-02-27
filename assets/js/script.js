@@ -112,7 +112,7 @@ modalSearch.addEventListener("click", function () {
 });
 
 // <--------DRINK STORAGE FUNCTION--------------->
-function drinkStorage(cocktailName, id) {
+function drinkStorage(cocktailName) {
   var searchResult = cocktailName.toLowerCase();
   console.log(previousCocktails.indexOf(searchResult));
   console.log(searchResult);
@@ -128,12 +128,12 @@ function drinkStorage(cocktailName, id) {
     savedDrinks.textContent = "";
 
     console.log(previousCocktails.length);
-    drinkHistory(id);
+    drinkHistory();
   }
 }
 
 // <--------DISPLAY DRINK HISTORY FUNCTION--------------->
-function drinkHistory(id) {
+function drinkHistory() {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
     addedDrink.setAttribute(
