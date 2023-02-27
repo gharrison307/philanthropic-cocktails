@@ -248,15 +248,15 @@ optionTwo.addEventListener("click", function () {
 });
 
 //Age popup modal
-// window.addEventListener("load", function () {
-//   setTimeout(function open(event) {
-//     document.querySelector(".popup").style.display = "block";
-//   }, 2000);
-// });
+window.addEventListener("load", function () {
+  setTimeout(function open(event) {
+    document.querySelector(".popup").style.display = "block";
+  }, 2000);
+});
 
-// document.querySelector("#close").addEventListener("click", function () {
-//   document.querySelector(".popup").style.display = "none";
-// });
+document.querySelector("#close").addEventListener("click", function () {
+  document.querySelector(".popup").style.display = "none";
+});
 
 //Function to fetch cocktails based on cocktail name or ingredient
 function search(type, inputText) {
