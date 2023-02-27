@@ -16,6 +16,7 @@
   font-family: var(--font-fam-1);
   box-sizing: border-box;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -38,6 +39,7 @@ body {
   align-items: center;
   padding-left: 2%;
 }
+
 #nav-div {
   display: flex;
   flex-direction: row;
@@ -48,6 +50,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #header-banner {
   display: flex;
   flex-direction: row;
@@ -60,6 +63,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #main-div {
   display: flex;
   flex-direction: row;
@@ -68,6 +72,7 @@ body {
   margin-top: 10px;
   justify-content: space-between;
 }
+
 #sidebar-div {
   display: flex;
   flex-direction: row;
@@ -76,6 +81,7 @@ body {
   justify-content: top;
   align-items: top;
 }
+
 #body-area {
   display: flex;
   flex-direction: row;
@@ -195,4 +201,44 @@ div#option-two {
 
 input#selections {
   max-width: 43%;
+}
+
+.popup {
+  background-color: aliceblue;
+  width: 450px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+}
+
+.popup button {
+  display: block;
+  margin: 0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.popup p {
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+}
+
+a {
+  display: block;
+  width: 150px;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  text-decoration: none;
 }

@@ -6,7 +6,7 @@ var producedDrink = /reference pointing to drink suggestion/;
 //functions
 
 /*
-    Fuction to fetch and return the cocktail data
+    Function to fetch and return the cocktail data
     Accepting parameters:
     - endpoint : String - should accept one of the options: [ search, filter, random or list ]
     - parameter : String - should accept the options [s, i, f, iid, g, a, c]
@@ -41,7 +41,7 @@ fetchCocktails("filter", "i", "Gin")
 
     Example: fetchDonations("climate")
 */
-function fetchDonatios(cause) {}
+function fetchDonations(cause) {}
 
 /* 
     Save the data to local storage
@@ -127,4 +127,14 @@ optionOne.addEventListener("click", function () {
 optionTwo.addEventListener("click", function () {
   $("#selections").attr("placeholder", "Type to search by ingredients...");
   searchBar.dataset.search = "ingredient";
+});
+
+window.addEventListener("load", function () {
+  setTimeout(function open(event) {
+    document.querySelector(".popup").style.display = "block";
+  }, 2000);
+});
+
+document.querySelector("#close").addEventListener("click", function () {
+  document.querySelector(".popup").style.display = "none";
 });
