@@ -7,6 +7,11 @@ var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
 var addedDrink;
 
+//Modal elements
+var modalInput = document.getElementById("text-cause");
+var modalSearch = document.getElementById("search-cause");
+var nonprofitList = document.getElementById("nonprofit-list");
+
 //Variable declarations
 var searchBar = document.getElementById("selections");
 var searchButton = document.getElementById("searchBtn");
@@ -34,44 +39,87 @@ async function fetchCocktails(endpoint, parameter, value) {
   return await fetch(requestURL);
 }
 
-//example of how to call fetchCocktails
-fetchCocktails("filter", "i", "Gin")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
-
 /* 
-    Function to fetch the donation information
+    Function to fetch the donation information and display it in the modal
     Accepting parameters:
     - cause : string
 
     Example: fetchDonations("climate")
 */
-function fetchDonations(cause) {}
+function fetchDonatios(cause) {
+  var APIkey = "pk_live_8a72071c11204646a37b2520e4194dad";
+  var requestURL =
+    "https://partners.every.org/v0.2/search/" + cause + "?apiKey=" + APIkey;
+  fetch(requestURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
-/* 
-    Save the data to local storage
-*/
-function saveLocalData() {}
+      var orderedList = document.createElement("ol");
+      orderedList.setAttribute(
+        "class",
+        "list-group list-group-numbered w-100 p-3"
+      );
+      nonprofitList.append(orderedList);
+      for (let index = 0; index < data.nonprofits.length; index++) {
+        var li = document.createElement("li");
+        li.setAttribute(
+          "class",
+          "list-group-item d-flex justify-content-between align-items-start hover-action"
+        );
+        orderedList.append(li);
 
-/*
-    Get data from local storage
-*/
-function displayLocalData() {}
+        //Name and description container
+        var contentDiv = document.createElement("div");
+        contentDiv.setAttribute("class", "ms-2 me-auto");
+
+        //Cooktail Name
+        var subheading = document.createElement("div");
+        subheading.textContent = data.nonprofits[index].name;
+        subheading.setAttribute("class", "fs-5 fw-bolder");
+        contentDiv.appendChild(subheading);
+
+        //image
+        var image = document.createElement("img");
+        image.setAttribute("src", data.nonprofits[index].logoUrl);
+        image.setAttribute(
+          "class",
+          "img-thumbnail rounded-4 border border-secondary"
+        );
+        image.style = "width: 50px; height: 50px;";
+
+        //Description
+        var desciption = document.createElement("p");
+        desciption.setAttribute("class", "fst-italic");
+        desciption.textContent = data.nonprofits[index].description;
+        contentDiv.appendChild(desciption);
+
+        //last append
+        li.append(contentDiv, image);
+      }
+    });
+}
+
+modalSearch.addEventListener("click", function () {
+  if (modalInput.value != null) {
+    removeElements(nonprofitList);
+    fetchDonatios(modalInput.value);
+  } else {
+    window.alert("Please eneter a cause you would like to support");
+  }
+});
 
 // <--------DRINK STORAGE FUNCTION--------------->
-function drinkStorage() {
-  var searchResult = producedDrink.toLowerCase();
+function drinkStorage(cocktailName, id) {
+  var searchResult = cocktailName.toLowerCase();
   console.log(previousCocktails.indexOf(searchResult));
   console.log(searchResult);
 
   if (searchResult === "") {
     return;
   } else if (previousCocktails.indexOf(searchResult) >= 0) {
-    drinkHistory();
     return;
   } else {
     previousCocktails.push(searchResult);
@@ -80,34 +128,124 @@ function drinkStorage() {
     savedDrinks.textContent = "";
 
     console.log(previousCocktails.length);
-    drinkHistory();
+    drinkHistory(id);
   }
 }
-// <--------DRINK HISTORY FUNCTION--------------->
-function drinkHistory() {
+
+// <--------DISPLAY DRINK HISTORY FUNCTION--------------->
+function drinkHistory(id) {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
+    addedDrink.setAttribute(
+      "onclick",
+      "displayDrinkByName('" + previousCocktails[i] + "');"
+    );
     addedDrink.textContent = previousCocktails[i];
     addedDrink.className = "savedDrinks";
     savedDrinks.appendChild(addedDrink);
     console.log(addedDrink);
-
-    // <------- EventListener for side buttons ---->
-    // addedDrink.addEventListener("click", function (event) {
-    //   producedDrink = event.target.innerText.toLowerCase();
-    //   console.log(producedDrink);
-    //   largeDisplay();
-    // });
   }
 }
 
+//Display a list of cocktails
+async function listCocktails(data, endpoint) {
+  var orderedList = document.createElement("ol");
+  orderedList.setAttribute("class", "list-group list-group-numbered w-100 p-3");
+  mainEl.append(orderedList);
+
+  for (let index = 0; index < data.drinks.length; index++) {
+    var li = document.createElement("li");
+    li.setAttribute(
+      "class",
+      "list-group-item d-flex justify-content-between align-items-start hover-action"
+    );
+    li.setAttribute(
+      "onclick",
+      "displayDrinkById(" + data.drinks[index].idDrink + ");"
+    );
+    orderedList.append(li);
+
+    //Name and description container
+    var contentDiv = document.createElement("div");
+    contentDiv.setAttribute("class", "ms-2 me-auto");
+
+    //Cooktail Name
+    var subheading = document.createElement("div");
+    subheading.textContent = data.drinks[index].strDrink;
+    subheading.setAttribute("class", "fs-4 fw-bold");
+    contentDiv.appendChild(subheading);
+
+    //image
+    var image = document.createElement("img");
+    image.setAttribute("src", data.drinks[index].strDrinkThumb);
+    image.setAttribute("alt", data.drinks[index].strDrink);
+    image.setAttribute(
+      "class",
+      "img-thumbnail rounded-5 border border-secondary"
+    );
+    image.style = "width: 100px; height: 100px;";
+
+    //Description & Ingredients
+    var ingredientSummary = document.createElement("span");
+    ingredientSummary.setAttribute("class", "fst-italic fw-semibold");
+    var description = document.createElement("p");
+
+    // fetch data by cooktail id if previously not available
+    if (endpoint === "filter") {
+      await fetchCocktails("lookup", "i", data.drinks[index].idDrink)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (newdata) {
+          ingredientSummary.textContent = sumIngredients(newdata);
+          description.textContent = customTrim(
+            newdata.drinks[0].strInstructions
+          );
+          contentDiv.append(ingredientSummary, description);
+          li.append(contentDiv, image);
+        });
+    } else {
+      ingredientSummary.textContent = sumIngredients(data);
+      description.textContent = customTrim(data.drinks[index].strInstructions);
+      contentDiv.append(ingredientSummary, description);
+      li.append(contentDiv, image);
+    }
+  }
+}
+
+//remove existing child elements - just pass in the parent element.
+function removeElements(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+//Sum the ingredients in one string to display in the list.
+function sumIngredients(data) {
+  var ingredientSummary = "";
+  var i = 1;
+  while (data.drinks[0]["strIngredient" + i] != null) {
+    ingredientSummary += data.drinks[0]["strIngredient" + i] + ", ";
+    i++;
+  }
+  ingredientSummary = ingredientSummary.substring(
+    0,
+    ingredientSummary.lastIndexOf(",")
+  );
+  return ingredientSummary + ".";
+}
+
+//Custom trim to fit text in the list
+function customTrim(description) {
+  if (description.length > 120) {
+    description = description.substring(0, 120) + "...";
+  }
+  return description;
+}
+
 // <--------LARGE DISPLAY FUNCTION--------------->
-
-//   Test variable
-producedDrink = "rum";
-
-function largeDisplay() {
-  //   Large Display Card
+function largeDisplay(data) {
+  //  Large Display Card
   var div1 = document.createElement("div");
   div1.setAttribute("class", "card mb-3");
   div1.setAttribute("style", "max-width: 100% largeDisplay");
@@ -150,76 +288,34 @@ function largeDisplay() {
   drinkImgEl.setAttribute("class", "img-fluid rounded");
   divImg.appendChild(drinkImgEl);
 
-  // fetching ID data on chosen drink
-  fetchCocktails("search", "s", producedDrink)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
+  // Drink Name
+  console.log(data.drinks[0].strDrink);
+  drinkNameEl.textContent = data.drinks[0].strDrink;
 
-      // redefinining variable as id number
-      producedDrink = data.drinks[0].idDrink;
-      console.log([producedDrink]);
+  //   Ingredients
+  var ingredientsList = document.createElement("ul");
+  ingredientsEl.appendChild(ingredientsList);
 
-      // fetching full drink details based on ID
-      fetchCocktails("lookup", "i", producedDrink)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
+  //Runs though ingredients and stops when "null" also added measurements
+  var i = 1;
+  while (data.drinks[0]["strIngredient" + i] != null) {
+    var listItems = document.createElement("li");
+    listItems.textContent =
+      data.drinks[0]["strMeasure" + i] + data.drinks[0]["strIngredient" + i];
+    ingredientsList.appendChild(listItems);
+    i++;
+  }
 
-          // Drink Name
-          console.log(data.drinks[0].strDrink);
-          drinkNameEl.textContent = data.drinks[0].strDrink;
+  // Drink Image
+  drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
+  console.log(data.drinks[0].strDrinkThumb);
 
-          //   Ingredients
-          var ingredientsList = document.createElement("ul");
-          ingredientsEl.appendChild(ingredientsList);
+  //Drink Instructions
+  drinkDescriptionEl.textContent =
+    "Instructions: " + data.drinks[0].strInstructions;
 
-          //Runs though ingredients and stops when "null" also added measurements
-          var i = 1;
-          while (data.drinks[0]["strIngredient" + i] != null) {
-            var listItems = document.createElement("li");
-            listItems.textContent =
-              data.drinks[0]["strMeasure" + i] +
-              data.drinks[0]["strIngredient" + i];
-            console.log(ingredientsList);
-            ingredientsList.appendChild(listItems);
-            i++;
-          }
-
-          // Drink Image
-          drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
-          console.log(data.drinks[0].strDrinkThumb);
-
-          //   Drink Instructions
-          drinkDescriptionEl.textContent = [
-            "Instructions: " + data.drinks[0].strInstructions,
-          ];
-        });
-
-      console.log(producedDrink);
-
-      drinkStorage();
-    });
+  drinkStorage(data.drinks[0].strDrink, data.drinks[0].idDrink);
 }
-// <------- EventListener to start Large Display Function ---->
-// gets referenced drink
-// /reference to listed drinks /.addEventListener("click", function (event) {
-//   producedDrink = event.target.innerText;
-//   console.log(producedDrink);
-// largeDisplay();
-// }
-
-largeDisplay();
-
-window.addEventListener("load", function () {
-  setTimeout(function open(event) {
-    document.querySelector(".popup").style.display = "block";
-  }, 2000);
-});
 
 searchButton.addEventListener("click", function () {
   if (searchBar.value != "") {
@@ -247,17 +343,6 @@ optionTwo.addEventListener("click", function () {
   searchBar.dataset.search = "ingredient";
 });
 
-//Age popup modal
-window.addEventListener("load", function () {
-  setTimeout(function open(event) {
-    document.querySelector(".popup").style.display = "block";
-  }, 2000);
-});
-
-document.querySelector("#close").addEventListener("click", function () {
-  document.querySelector(".popup").style.display = "none";
-});
-
 //Function to fetch cocktails based on cocktail name or ingredient
 function search(type, inputText) {
   var endPoint = "";
@@ -276,5 +361,48 @@ function search(type, inputText) {
     })
     .then(function (data) {
       console.log(data);
+      removeElements(mainEl);
+      listCocktails(data, endPoint);
+    });
+}
+
+//DO when page ready
+$(function () {
+  //displaying modal
+  $("#ageModal").modal("show");
+
+  //Loading a random cocktail
+  fetchCocktails("random")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      removeElements(mainEl);
+      largeDisplay(data);
+    });
+});
+
+//Trigered by list items
+function displayDrinkById(id) {
+  fetchCocktails("lookup", "i", id)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      removeElements(mainEl);
+      largeDisplay(data);
+    });
+}
+
+//Display drink by name
+function displayDrinkByName(name) {
+  fetchCocktails("search", "s", name)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      removeElements(mainEl);
+      largeDisplay(data);
     });
 }
