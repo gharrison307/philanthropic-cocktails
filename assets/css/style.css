@@ -56,7 +56,7 @@ nav {
   flex-direction: row;
   width: 100%;
   min-height: 30px;
-  background-color: lightgrey;
+  background-color: #d0b8a8;;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
@@ -107,7 +107,7 @@ nav {
   flex-direction: row;
   width: 100%;
   min-height: 50px;
-  background-color: lightgrey;
+  background-color: #d0b8a8;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
