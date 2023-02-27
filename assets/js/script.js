@@ -348,6 +348,13 @@ optionTwo.addEventListener("click", function () {
   searchBar.dataset.search = "ingredient";
 });
 
+searchBar.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchBtn").click();
+  }
+});
+
 //Function to fetch cocktails based on cocktail name or ingredient
 function search(type, inputText) {
   var endPoint = "";
