@@ -1,11 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
 
+:root {
+  --extra-light: #f8ede3;
+  --light: #dfd3c3;
+  --medium-light: #d0b8a8;
+  --medium: #7d6e83;
+  --medium-dark: #65647c;
+  --dark: #222831;
+  --font-fam-1: "Gloock", serif;
+}
 
 * {
   margin: 0%;
   padding: 0px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-fam-1);
   box-sizing: border-box;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -28,6 +39,7 @@ body {
   align-items: center;
   padding-left: 2%;
 }
+
 #nav-div {
   display: flex;
   flex-direction: row;
@@ -38,18 +50,22 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #header-banner {
-  display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  display: flex;
   min-height: 100px;
-  background-color: lightgrey;
+  background-color: var(--medium-light);
   margin-top: 10px;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 10px;
+  background: url(https://i.imgur.com/c4L99NJ.jpg);
+  background-size: 100%;
+  background-position: center;
 }
+
 #main-div {
   display: flex;
   flex-direction: row;
@@ -58,6 +74,7 @@ body {
   margin-top: 10px;
   justify-content: space-between;
 }
+
 #sidebar-div {
   display: flex;
   flex-direction: column;
@@ -66,6 +83,7 @@ body {
   justify-content: top;
   align-items: top;
 }
+
 #body-area {
   display: flex;
   flex-direction: row;
@@ -178,18 +196,52 @@ h2 {
   background-color: #f8ede3;
 }
 
-.popup{
+.opacity {
+  opacity: 0.4;
+}
+
+div#option-one {
+  background-color: var(--medium);
+  border-color: aliceblue;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 22px;
+}
+
+div#option-two {
+  background-color: var(--medium);
+  border-color: aliceblue;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 22px;
+}
+
+#searchBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--medium);
+  border-color: aliceblue;
+  width: 10%;
+  text-shadow: 1px 1px 2px var(--dark);
+  font-size: 18px;
+}
+
+input#selections {
+  max-width: 50%;
+}
+
+.popup {
   background-color: aliceblue;
   width: 450px;
   padding: 30px 40px;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   border-radius: 8px;
   display: none;
 }
-.popup button{
+
+.popup button {
   display: block;
   margin: 0 0 20px auto;
   background-color: transparent;
@@ -200,13 +252,13 @@ h2 {
   cursor: pointer;
 }
 
-.popup p{
+.popup p {
   font-size: 14px;
   text-align: justify;
   margin: 20px 0;
 }
 
-a{
+a {
   display: block;
   width: 150px;
   position: relative;

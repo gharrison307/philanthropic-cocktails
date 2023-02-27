@@ -6,10 +6,16 @@ var ingredients = document.getElementById("ingredients");
 var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
 var addedDrink;
+
+//Variable declarations
+var searchBar = document.getElementById("selections");
+var searchButton = document.getElementById("searchBtn");
+var optionOne = document.getElementById("option-one");
+var optionTwo = document.getElementById("option-two");
 //functions
 
 /*
-    Fuction to fetch and return the cocktail data
+    Function to fetch and return the cocktail data
     Accepting parameters:
     - endpoint : String - should accept one of the options: [ search, filter, random or list ]
     - parameter : String - should accept the options [s, i, f, iid, g, a, c]
@@ -29,7 +35,7 @@ async function fetchCocktails(endpoint, parameter, value) {
 }
 
 //example of how to call fetchCocktails
-fetchCocktails("lookup", "i", "15300")
+fetchCocktails("filter", "i", "Gin")
   .then(function (response) {
     return response.json();
   })
@@ -44,7 +50,7 @@ fetchCocktails("lookup", "i", "15300")
 
     Example: fetchDonations("climate")
 */
-function fetchDonatios(cause) {}
+function fetchDonations(cause) {}
 
 /* 
     Save the data to local storage
@@ -105,6 +111,7 @@ function largeDisplay() {
   var div1 = document.createElement("div");
   div1.setAttribute("class", "card mb-3");
   div1.setAttribute("style", "max-width: 100% largeDisplay");
+  div1.setAttribute("style", "opacity: 1");
   mainEl.appendChild(div1);
 
   var div2 = document.createElement("div");
@@ -192,13 +199,12 @@ function largeDisplay() {
             "Instructions: " + data.drinks[0].strInstructions,
           ];
         });
+
+      console.log(producedDrink);
+
+      drinkStorage();
     });
-
-  console.log(producedDrink);
-
-  drinkStorage();
 }
-
 // <------- EventListener to start Large Display Function ---->
 // gets referenced drink
 // /reference to listed drinks /.addEventListener("click", function (event) {
@@ -215,6 +221,60 @@ window.addEventListener("load", function () {
   }, 2000);
 });
 
-document.querySelector("#close").addEventListener("click", function () {
-  document.querySelector(".popup").style.display = "none";
+searchButton.addEventListener("click", function () {
+  if (searchBar.value != "") {
+    search(searchBar.dataset.search, searchBar.value);
+  } else {
+    window.alert("Please enter a ingredient or cocktail name.");
+  }
 });
+
+//Change opacity of the div the user selects
+var addClass = "opacity";
+var change = $(".card").on("click", function () {
+  change.addClass(addClass);
+  $(this).removeClass(addClass);
+});
+
+//Changes placeholder text based on click
+optionOne.addEventListener("click", function () {
+  $("#selections").attr("placeholder", "Type to search by cocktails...");
+  searchBar.dataset.search = "cocktail";
+});
+
+optionTwo.addEventListener("click", function () {
+  $("#selections").attr("placeholder", "Type to search by ingredients...");
+  searchBar.dataset.search = "ingredient";
+});
+
+//Age popup modal
+// window.addEventListener("load", function () {
+//   setTimeout(function open(event) {
+//     document.querySelector(".popup").style.display = "block";
+//   }, 2000);
+// });
+
+// document.querySelector("#close").addEventListener("click", function () {
+//   document.querySelector(".popup").style.display = "none";
+// });
+
+//Function to fetch cocktails based on cocktail name or ingredient
+function search(type, inputText) {
+  var endPoint = "";
+  var parameter = "";
+  if (type == "cocktail") {
+    endPoint = "search";
+    parameter = "s";
+  } else {
+    endPoint = "filter";
+    parameter = "i";
+  }
+
+  fetchCocktails(endPoint, parameter, inputText)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
