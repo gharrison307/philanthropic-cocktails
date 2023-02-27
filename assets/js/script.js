@@ -334,12 +334,12 @@ var change = $(".card").on("click", function () {
 
 //Changes placeholder text based on click
 optionOne.addEventListener("click", function () {
-  $("#selections").attr("placeholder", "Type to search by cocktails...");
+  $("#selections").attr("placeholder", "Search by cocktail name...");
   searchBar.dataset.search = "cocktail";
 });
 
 optionTwo.addEventListener("click", function () {
-  $("#selections").attr("placeholder", "Type to search by ingredients...");
+  $("#selections").attr("placeholder", "Search by ingredient name...");
   searchBar.dataset.search = "ingredient";
 });
 
