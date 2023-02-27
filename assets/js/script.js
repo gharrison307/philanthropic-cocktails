@@ -56,6 +56,7 @@ function saveLocalData() {}
 */
 function displayLocalData() {}
 
+// <--------DRINK STORAGE FUNCTION--------------->
 function drinkStorage() {
   var searchResult = producedDrink.toLowerCase();
   console.log(previousCocktails.indexOf(searchResult));
@@ -76,7 +77,7 @@ function drinkStorage() {
     drinkHistory();
   }
 }
-
+// <--------DRINK HISTORY FUNCTION--------------->
 function drinkHistory() {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
@@ -86,6 +87,11 @@ function drinkHistory() {
     console.log(addedDrink);
   }
 }
+
+// <--------LARGE DISPLAY FUNCTION--------------->
+
+//   Test variable
+producedDrink = "rum";
 
 function largeDisplay() {
   //   Large Display Card
@@ -130,14 +136,6 @@ function largeDisplay() {
   drinkImgEl.setAttribute("class", "img-fluid rounded");
   divImg.appendChild(drinkImgEl);
 
-  // gets referenced drink
-  //   /reference to listed drinks /.addEventListener("click", function (event) {
-  //     producedDrink = event.target.innerText;
-  //     console.log(producedDrink);
-
-  //   Test variable
-  producedDrink = "margarita";
-
   // fetching ID data on chosen drink
   fetchCocktails("search", "s", producedDrink)
     .then(function (response) {
@@ -150,7 +148,7 @@ function largeDisplay() {
       producedDrink = data.drinks[0].idDrink;
       console.log([producedDrink]);
 
-      // fetching full drink detials based on ID
+      // fetching full drink details based on ID
       fetchCocktails("lookup", "i", producedDrink)
         .then(function (response) {
           return response.json();
@@ -158,32 +156,31 @@ function largeDisplay() {
         .then(function (data) {
           console.log(data);
 
-          // Drink Name ---- unhides div and sets text content as drink name
+          // Drink Name
           console.log(data.drinks[0].strDrink);
-          //   document.drinkName.setAttribute("class", "shown");
           drinkNameEl.textContent = data.drinks[0].strDrink;
 
-          //   Ingredients ---
+          //   Ingredients
           var ingredientsList = document.createElement("ul");
           ingredientsEl.appendChild(ingredientsList);
-          // running through ingredients list and appending a child if not null. Set to run through 10 ingredients
 
+          //Runs though ingredients and stops when "null" also added measurements
           var i = 1;
           while (data.drinks[0]["strIngredient" + i] != null) {
             var listItems = document.createElement("li");
-            listItems.textContent = data.drinks[0]["strIngredient" + i];
+            listItems.textContent =
+              data.drinks[0]["strMeasure" + i] +
+              data.drinks[0]["strIngredient" + i];
             console.log(ingredientsList);
             ingredientsList.appendChild(listItems);
             i++;
           }
 
-          // Drink Image ------ adding the drink image
+          // Drink Image
           drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
           console.log(data.drinks[0].strDrinkThumb);
 
-          // document.drinkName. = data.strDrinkThumb;
-
-          //   Description
+          //   Drink Instructions
           drinkDescriptionEl.textContent = [
             "Instructions: " + data.drinks[0].strInstructions,
           ];
@@ -192,4 +189,10 @@ function largeDisplay() {
   drinkStorage();
 }
 
+// EventListener to start Large Display Function
+// gets referenced drink
+// /reference to listed drinks /.addEventListener("click", function (event) {
+//   producedDrink = event.target.innerText;
+//   console.log(producedDrink);
 largeDisplay();
+// }
