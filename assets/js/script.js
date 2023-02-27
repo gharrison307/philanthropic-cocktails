@@ -2,8 +2,6 @@
 var previousCocktails = JSON.parse(localStorage.getItem("cocktails")) || [];
 var savedDrinks = document.getElementById("savedDrinks");
 var producedDrink = /reference pointing to drink suggestion/;
-var drinkName = document.getElementById("drinkName");
-console.log(drinkName);
 var ingredients = document.getElementById("ingredients");
 var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
@@ -108,17 +106,18 @@ function largeDisplay() {
   div4.setAttribute("class", "card-body largeDisplay");
   div3Text.appendChild(div4);
 
-  //   drink title
+  //   Drink Title Element
   var drinkNameEl = document.createElement("h3");
   drinkNameEl.setAttribute("class", "card-title largeDisplay");
+  drinkNameEl.setAttribute("style", "text-decoration: underline");
   div4.appendChild(drinkNameEl);
 
-  //   drink ingredients
+  //   Drink Ingredients Element
   var ingredientsEl = document.createElement("ul");
   ingredientsEl.setAttribute("class", "card-text");
   div4.appendChild(ingredientsEl);
 
-  // drink description
+  // Drink Instructions Element
   var drinkDescriptionEl = document.createElement("p");
   div4.appendChild(drinkDescriptionEl);
 
@@ -126,6 +125,7 @@ function largeDisplay() {
   divImg.setAttribute("class", "col-md-6");
   div2.appendChild(divImg);
 
+  //   Drink Image Element
   var drinkImgEl = document.createElement("img");
   drinkImgEl.setAttribute("class", "img-fluid rounded");
   divImg.appendChild(drinkImgEl);

@@ -151,6 +151,8 @@ h2 {
   text-transform: uppercase;
   margin: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f8ede3;
+  border-radius: 25px;
 }
 
 .savedDrinks:hover {
