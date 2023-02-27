@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
-@import url('https://fonts.cdnfonts.com/css/braton-composer-stamp-rough');
+@import url("https://fonts.cdnfonts.com/css/braton-composer-stamp-rough");
 
 :root {
   --extra-light: #f8ede3;
@@ -21,7 +21,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: #D0B8A8;
+  background-color: var(--medium-light);
 }
 
 #wrapper-div {
@@ -32,23 +32,23 @@ body {
   margin: auto;
 }
 
-nav{
-  background-color: #7D6E83;
+nav {
+  background-color: var(--medium);
   padding-top: 0;
   margin-top: 0;
 }
 
-#nav-container{
-  background-color: #7D6E83;
+#nav-container {
+  background-color: var(--medium);
 }
 
-#nav-container a{
-  font-family: 'Braton Composer Stamp Rough', sans-serif;
+#nav-container a {
+  font-family: "Braton Composer Stamp Rough", sans-serif;
   font-size: 35px;
   color: black;
 }
 #donateBtn {
-  background-color: #D0B8A8;
+  background-color: var(--medium-light);
 }
 
 #nav-div {
@@ -239,42 +239,7 @@ input#selections {
   max-width: 50%;
 }
 
-.popup {
-  background-color: aliceblue;
-  width: 450px;
-  padding: 30px 40px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-radius: 8px;
-  display: none;
-}
-
-.popup button {
-  display: block;
-  margin: 0 0 20px auto;
-  background-color: transparent;
-  font-size: 30px;
-  color: rgb(0, 0, 0);
-  border: none;
-  outline: none;
+.hover-action:hover {
+  background-color: var(--medium);
   cursor: pointer;
-}
-
-.popup p {
-  font-size: 14px;
-  text-align: justify;
-  margin: 20px 0;
-  z-index: 2;
-}
-
-.popup a{
-  display: block;
-  width: 150px;
-  position: relative;
-  margin: auto;
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  text-decoration: none;
 }
