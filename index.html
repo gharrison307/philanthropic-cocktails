@@ -11,7 +11,10 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Philanthropic Cocktails</title>
   </head>
 
@@ -22,56 +25,7 @@
       </div>
       <div id="nav-div">navigation</div>
 
-      <div id="header-banner">
-        <!-- Liquor select modal trigger -->
-        <div
-          id="modal-trigger-1"
-          class="col-sm-4 bg-primary rounded-2 text-center w-25"
-        >
-          <h6>Liquor Preference</h6>
-          <div class="d-flex justify-content-center">
-            <button
-              class="btn btn-warning"
-              data-bs-toggle="modal"
-              data-bs-target="#modal-1"
-            >
-              Click to select your liquor
-            </button>
-          </div>
-        </div>
-        <!-- Ingredient modal trigger -->
-        <div
-          id="modal-trigger-2"
-          class="col-sm-4 bg-secondary rounded-2 text-center w-25"
-        >
-          <h6>Ingredient Preference</h6>
-          <div class="d-flex justify-content-center">
-            <button
-              class="btn btn-warning"
-              data-bs-toggle="modal"
-              data-bs-target="#modal-2"
-            >
-              Click to select your ingredient
-            </button>
-          </div>
-        </div>
-        <!-- Donation modal trigger -->
-        <div
-          id="modal-trigger-3"
-          class="col-sm-4 bg-success rounded-2 text-center w-25"
-        >
-          <h6>Donation Preference</h6>
-          <div class="d-flex justify-content-center">
-            <button
-              class="btn btn-warning"
-              data-bs-toggle="modal"
-              data-bs-target="#modal-3"
-            >
-              Click to select your Donation
-            </button>
-          </div>
-        </div>
-      </div>
+      <div id="header-banner"></div>
       <div id="main-div">
         <div id="sidebar-div">
           <h3 class="row-3" id="savedDrinksBar">Saved Drinks</h3>
@@ -79,197 +33,22 @@
         </div>
 
         <div id="body-area"></div>
-      </div>
-
-      <!-- Modals -->
-      <!-- Liquor modal -->
-      <div
-        class="modal fade"
-        id="modal-1"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">Choose your Liquor</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <select
-                id="liquor-select"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option selected>Click to select</option>
-                <option value="1">Gin</option>
-                <option value="2">Rum</option>
-                <option value="3">Tequila</option>
-                <option value="4">Vodka</option>
-                <option value="5">Whisky</option>
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button
-                id="savBtn"
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ingredient modal -->
-
-      <div
-        class="modal fade"
-        id="modal-2"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">
-                Choose your Ingredients
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="lime"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  lime
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="lemon"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  lemon
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="mint"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  mint
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="tonic"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  tonic
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="soda"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  soda
-                </label>
-              </div>
-              <div class="modal-footer">
-                <button
-                  id="savBtn"
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Donation Modal -->
-
-      <div
-        class="modal fade"
-        id="modal-3"
-        tabindex="-1"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-title">Choose your Donation</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <select
-                id="donation-select"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option selected>Click to select</option>
-                <option value="1">Animals</option>
-                <option value="2">Environment</option>
-                <option value="3">Humanitarian</option>
-                <option value="4">World Hunger</option>
-                <option value="5">Education</option>
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button
-                id="savBtn"
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Save
-              </button>
-            </div>
-          </div>
+        <!-- age verify model -->
+        <div class="popup">
+          <button id="close">&times;</button>
+          <h2>Are you at least 21?</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem,
+            provident quod numquam consequuntur odit fuga quas aliquam
+            laboriosam dolores repellendus ullam porro? Necessitatibus quasi nam
+            repellat minima praesentium soluta nobis.
+          </p>
+          <a href="#">lets go</a>
         </div>
       </div>
     </div>
+
+    <!-- age verify model -->
 
     <div class="container" id="footer-div">
       <h3>Son's Of JSON</h3>
@@ -294,9 +73,6 @@
           <a href="#"><i class="fa fa-linkedin-square"></i></a>
         </li>
       </ul>
-      <div class="footer-bottom">
-        <p>copyright &copy;2023 SonsofJson. designed by<span>Team</span></p>
-      </div>
       <script src="./assets/js/script.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
       <script
@@ -304,6 +80,9 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"
       ></script>
+    </div>
+    <div class="footer-bottom">
+      <p>copyright &copy;2023 SonsofJson. designed by<span>Team</span></p>
     </div>
   </body>
 </html>
