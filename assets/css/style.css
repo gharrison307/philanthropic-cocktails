@@ -185,13 +185,12 @@ h2 {
   margin: 20px 0;
 }
 
-a{
+.popup a{
   display: block;
   width: 150px;
   position: relative;
   margin: auto;
   text-align: center;
   background-color: rgb(255, 255, 255);
-  color: white;
   text-decoration: none;
 }

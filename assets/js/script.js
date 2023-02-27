@@ -32,26 +32,6 @@ async function fetchCocktails(endpoint, parameter, value) {
     return await fetch(requestURL);
 }
 
-//example of how to call fetchCocktails
-// fetchCocktails("filter","i", "gin")
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(data){
-//         //listCocktails(data,"filter");
-
-//         console.log(data);
-//     });
-
-// fetchCocktails("random")
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(data){
-//         console.log(data);
-//         console.log(sumIngredients(data));
-//     });
-
 /* 
     Function to fetch the donation information and display it in the modal
     Accepting parameters:
@@ -114,21 +94,6 @@ modalSearch.addEventListener("click", function(){
         window.alert("Please eneter a cause you would like to support");
     }
 })
-
-/* 
-    Save the data to local storage
-*/
-function saveLocalData() { }
-
-/*
-    Get data from local storage
-*/
-function displayLocalData() {
-
-
-
-}
-
 
 function drinkHistory() {
     var searchResult = producedDrink.value.trim().toLowerCase();
@@ -237,15 +202,12 @@ function customTrim(description) {
 }
 
 window.addEventListener("load",function(){
-  setTimeout(
-    function open(event){
-      document.querySelector(".popup").style.display = "block";
-    },
-    2000
-  )
+    setTimeout(function open(event){
+        document.querySelector(".popup").style.display = "block";
+    },2000)
 })
 
 document.querySelector("#close").addEventListener("click", function(){
-  document.querySelector(".popup").style.display = "none";
+    document.querySelector(".popup").style.display = "none";
 });
 
