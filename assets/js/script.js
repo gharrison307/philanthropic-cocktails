@@ -300,9 +300,14 @@ function largeDisplay(data) {
   var i = 1;
   while (data.drinks[0]["strIngredient" + i] != null) {
     var listItems = document.createElement("li");
-    listItems.textContent =
-      data.drinks[0]["strMeasure" + i] + data.drinks[0]["strIngredient" + i];
-    ingredientsList.appendChild(listItems);
+    if (data.drinks[0]["strMeasure" + i] == null) {
+      listItems.textContent = data.drinks[0]["strIngredient" + i];
+      ingredientsList.appendChild(listItems);
+    } else {
+      listItems.textContent =
+        data.drinks[0]["strMeasure" + i] + data.drinks[0]["strIngredient" + i];
+      ingredientsList.appendChild(listItems);
+    }
     i++;
   }
 
