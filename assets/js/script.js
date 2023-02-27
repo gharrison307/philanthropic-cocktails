@@ -205,10 +205,8 @@ window.addEventListener("load",function(){
     setTimeout(function open(event){
         document.querySelector(".popup").style.display = "block";
     },2000)
-})
+});
 
-document.querySelector("#close").addEventListener("click", function(){
-    document.querySelector(".popup").style.display = "none";
 //Variable declarations
 var searchBar = document.getElementById("selections");
 var searchButton = document.getElementById("searchBtn");
@@ -233,6 +231,8 @@ function search(type, inputText) {
     })
     .then(function (data) {
       console.log(data);
+      removeElements(mainAreaEL);
+      listCocktails(data,endPoint);
     });
 }
 

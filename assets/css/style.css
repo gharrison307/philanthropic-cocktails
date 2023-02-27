@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+@import url('https://fonts.cdnfonts.com/css/braton-composer-stamp-rough');
 
 :root {
   --extra-light: #f8ede3;
@@ -26,7 +27,7 @@ body {
 #wrapper-div {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 98%;
   min-height: 100px;
   margin: auto;
 }
@@ -243,7 +244,7 @@ input#selections {
   margin: 20px 0;
 }
 
-a{
+.popup a{
   display: block;
   width: 150px;
   position: relative;
