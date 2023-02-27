@@ -5,7 +5,7 @@ var producedDrink = /reference pointing to drink suggestion/;
 var ingredients = document.getElementById("ingredients");
 var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
-
+var addedDrink;
 //functions
 
 /*
@@ -85,6 +85,13 @@ function drinkHistory() {
     addedDrink.className = "savedDrinks";
     savedDrinks.appendChild(addedDrink);
     console.log(addedDrink);
+
+    // <------- EventListener for side buttons ---->
+    // addedDrink.addEventListener("click", function (event) {
+    //   producedDrink = event.target.innerText.toLowerCase();
+    //   console.log(producedDrink);
+    //   largeDisplay();
+    // });
   }
 }
 
@@ -97,7 +104,7 @@ function largeDisplay() {
   //   Large Display Card
   var div1 = document.createElement("div");
   div1.setAttribute("class", "card mb-3");
-  div1.setAttribute("style", "max-width: 100% text-blue largeDisplay");
+  div1.setAttribute("style", "max-width: 100% largeDisplay");
   mainEl.appendChild(div1);
 
   var div2 = document.createElement("div");
@@ -186,13 +193,18 @@ function largeDisplay() {
           ];
         });
     });
+
+  console.log(producedDrink);
+
   drinkStorage();
 }
 
-// EventListener to start Large Display Function
+// <------- EventListener to start Large Display Function ---->
 // gets referenced drink
 // /reference to listed drinks /.addEventListener("click", function (event) {
 //   producedDrink = event.target.innerText;
 //   console.log(producedDrink);
-largeDisplay();
+// largeDisplay();
 // }
+
+largeDisplay();
