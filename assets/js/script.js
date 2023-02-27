@@ -13,15 +13,15 @@ var nonprofitList = document.getElementById("nonprofit-list");
 //functions
 
 /*
-    Fuction to fetch and return the cocktail data
+    Function to fetch and return the cocktail data
     Accepting parameters:
     - endpoint : String - should accept one of the options: [ search, filter, random or list ]
     - parameter : String - should accept the options [s, i, f, iid, g, a, c]
     - value : String - the filer of search value to pass with parameter
 */
 async function fetchCocktails(endpoint, parameter, value) {
-    var baseURL = "https://www.thecocktaildb.com/api/json/v1/1/";
-    var requestURL;
+  var baseURL = "https://www.thecocktaildb.com/api/json/v1/1/";
+  var requestURL;
 
     if (endpoint === "random") {
         requestURL = baseURL + "random.php";
@@ -29,7 +29,7 @@ async function fetchCocktails(endpoint, parameter, value) {
         requestURL = baseURL + endpoint + ".php?" + parameter + "=" + value;
     }
 
-    return await fetch(requestURL);
+  return await fetch(requestURL);
 }
 
 /* 
@@ -209,5 +209,66 @@ window.addEventListener("load",function(){
 
 document.querySelector("#close").addEventListener("click", function(){
     document.querySelector(".popup").style.display = "none";
+//Variable declarations
+var searchBar = document.getElementById("selections");
+var searchButton = document.getElementById("searchBtn");
+var optionOne = document.getElementById("option-one");
+var optionTwo = document.getElementById("option-two");
+
+//Function to fetch cocktails based on cocktail name or ingredient
+function search(type, inputText) {
+  var endPoint = "";
+  var parameter = "";
+  if (type == "cocktail") {
+    endPoint = "search";
+    parameter = "s";
+  } else {
+    endPoint = "filter";
+    parameter = "i";
+  }
+
+  fetchCocktails(endPoint, parameter, inputText)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
+
+searchButton.addEventListener("click", function () {
+  if (searchBar.value != "") {
+    search(searchBar.dataset.search, searchBar.value);
+  } else {
+    window.alert("Please enter a ingredient or cocktail name.");
+  }
 });
 
+//Change opacity of the div the user selects
+var addClass = "opacity";
+var change = $(".card").on("click", function () {
+  change.addClass(addClass);
+  $(this).removeClass(addClass);
+});
+
+//Changes placeholder text based on click
+optionOne.addEventListener("click", function () {
+  $("#selections").attr("placeholder", "Type to search by cocktails...");
+  searchBar.dataset.search = "cocktail";
+});
+
+optionTwo.addEventListener("click", function () {
+  $("#selections").attr("placeholder", "Type to search by ingredients...");
+  searchBar.dataset.search = "ingredient";
+});
+
+//Age popup modal
+window.addEventListener("load", function () {
+  setTimeout(function open(event) {
+    document.querySelector(".popup").style.display = "block";
+  }, 2000);
+});
+
+document.querySelector("#close").addEventListener("click", function () {
+  document.querySelector(".popup").style.display = "none";
+});
