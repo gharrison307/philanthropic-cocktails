@@ -129,6 +129,7 @@ optionTwo.addEventListener("click", function () {
   searchBar.dataset.search = "ingredient";
 });
 
+//Age popup modal
 window.addEventListener("load", function () {
   setTimeout(function open(event) {
     document.querySelector(".popup").style.display = "block";

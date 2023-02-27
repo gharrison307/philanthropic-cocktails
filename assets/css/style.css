@@ -52,16 +52,18 @@ body {
 }
 
 #header-banner {
-  display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  display: flex;
   min-height: 100px;
-  background-color: lightgrey;
+  background-color: var(--medium-light);
   margin-top: 10px;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 10px;
+  background: url(https://i.imgur.com/c4L99NJ.jpg);
+  background-size: 100%;
+  background-position: center;
 }
 
 #main-div {
@@ -200,7 +202,7 @@ div#option-two {
 }
 
 input#selections {
-  max-width: 43%;
+  max-width: 50%;
 }
 
 .popup {
