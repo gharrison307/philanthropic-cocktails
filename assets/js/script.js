@@ -1,4 +1,4 @@
-//Variable Declarations
+//=================================================================== Variable Declarations ======================================================================================================
 var previousCocktails = JSON.parse(localStorage.getItem("cocktails")) || [];
 var savedDrinks = document.getElementById("savedDrinks");
 var producedDrink = /reference pointing to drink suggestion/;
@@ -6,19 +6,17 @@ var ingredients = document.getElementById("ingredients");
 var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
 var addedDrink;
-
-//Modal elements
-var modalInput = document.getElementById("text-cause");
-var modalSearch = document.getElementById("search-cause");
-var nonprofitList = document.getElementById("nonprofit-list");
-
-//Variable declarations
 var searchBar = document.getElementById("selections");
 var searchButton = document.getElementById("searchBtn");
 var optionOne = document.getElementById("option-one");
 var optionTwo = document.getElementById("option-two");
-//functions
 
+//Nonprofit modal elements
+var modalInput = document.getElementById("text-cause");
+var modalSearch = document.getElementById("search-cause");
+var nonprofitList = document.getElementById("nonprofit-list");
+
+//========================================================================== FUNCTIONS ===========================================================================================================
 /*
     Function to fetch and return the cocktail data
     Accepting parameters:
@@ -102,6 +100,7 @@ function fetchDonatios(cause) {
     });
 }
 
+// Event listener for the search button inside the Nonprofit search modal
 modalSearch.addEventListener("click", function () {
   if (modalInput.value != null) {
     removeElements(nonprofitList);
