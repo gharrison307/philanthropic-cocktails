@@ -325,8 +325,6 @@ function largeDisplay(data) {
 searchButton.addEventListener("click", function () {
   if (searchBar.value != "") {
     search(searchBar.dataset.search, searchBar.value);
-  } else {
-    window.alert("Please enter a ingredient or cocktail name.");
   }
 });
 
@@ -417,4 +415,8 @@ function displayDrinkByName(name) {
       removeElements(mainEl);
       largeDisplay(data);
     });
+}
+
+function bootstrapAlert() {
+  $(".input").alert("close");
 }
