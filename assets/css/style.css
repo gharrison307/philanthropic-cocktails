@@ -42,11 +42,12 @@ nav {
   background-color: var(--medium);
 }
 
-#nav-container h1 {
+#nav-container a {
   font-family: "Braton Composer Stamp Rough", sans-serif;
   font-size: 35px;
   color: black;
 }
+
 #donateBtn {
   background-color: var(--medium-light);
 }
@@ -251,15 +252,57 @@ input#selections {
     justify-content: center;
   }
 
-  div#main-div {
+  #nav-container a {
+    font-size: 25px;
+  }
+
+  #martini {
+    width: 25px;
+    height: 25px;
+  }
+
+  div#option-one {
+    font-size: 16px;
+  }
+
+  div#option-two {
+    font-size: 16px;
+  }
+
+  #searchBtn {
+    font-size: 12px;
+  }
+
+  input#selections {
+    font-size: 12px;
+  }
+
+  label.form-label {
+    font-size: fs-4;
+  }
+
+  #main-div {
     flex-direction: column;
     flex-wrap: wrap;
   }
 
+  div.col-md-6 {
+    display: flex;
+    justify-content: center;
+  }
   #savedDrinks {
     display: flex;
     flex-wrap: wrap;
     order: 0;
+  }
+
+  img {
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  button.savedDrinks {
+    font-size: 12px;
   }
 
   #sidebar-div {
