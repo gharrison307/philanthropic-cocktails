@@ -68,7 +68,7 @@ nav {
   flex-wrap: wrap;
   width: 100%;
   display: flex;
-  min-height: 100px;
+  min-height: 150px;
   background-color: var(--medium-light);
   margin-top: 10px;
   margin-bottom: 10px;
@@ -208,7 +208,7 @@ h2 {
 }
 
 .opacity {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 div#option-one {
@@ -216,6 +216,11 @@ div#option-one {
   border-color: aliceblue;
   text-shadow: 1px 1px 2px var(--dark);
   font-size: 22px;
+  border-radius: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 3px solid aliceblue;
 }
 
 div#option-two {
@@ -223,6 +228,11 @@ div#option-two {
   border-color: aliceblue;
   text-shadow: 1px 1px 2px var(--dark);
   font-size: 22px;
+  border-radius: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 3px solid aliceblue ;
 }
 
 #searchBtn {
@@ -308,4 +318,13 @@ input#selections {
   #sidebar-div {
     order: 1;
   }
+}
+
+div#option-one:hover{
+  border: 2px solid var(--medium-light);
+  opacity: 0.7;
+} 
+div#option-two:hover{
+  border: 2px solid var(--medium-light);
+  opacity: 0.7;
 }
