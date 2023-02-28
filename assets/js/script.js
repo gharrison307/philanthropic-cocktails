@@ -1,4 +1,4 @@
-//Variable Declarations
+//=================================================================== Variable Declarations ======================================================================================================
 var previousCocktails = JSON.parse(localStorage.getItem("cocktails")) || [];
 var savedDrinks = document.getElementById("savedDrinks");
 var producedDrink = /reference pointing to drink suggestion/;
@@ -6,19 +6,17 @@ var ingredients = document.getElementById("ingredients");
 var drinkImg = document.getElementById("drinkImg");
 var mainEl = document.getElementById("body-area");
 var addedDrink;
-
-//Modal elements
-var modalInput = document.getElementById("text-cause");
-var modalSearch = document.getElementById("search-cause");
-var nonprofitList = document.getElementById("nonprofit-list");
-
-//Variable declarations
 var searchBar = document.getElementById("selections");
 var searchButton = document.getElementById("searchBtn");
 var optionOne = document.getElementById("option-one");
 var optionTwo = document.getElementById("option-two");
-//functions
 
+//Nonprofit modal elements
+var modalInput = document.getElementById("text-cause");
+var modalSearch = document.getElementById("search-cause");
+var nonprofitList = document.getElementById("nonprofit-list");
+
+//========================================================================== FUNCTIONS ===========================================================================================================
 /*
     Function to fetch and return the cocktail data
     Accepting parameters:
@@ -69,6 +67,7 @@ function fetchDonatios(cause) {
           "class",
           "list-group-item d-flex justify-content-between align-items-start hover-action"
         );
+        li.style = "background-color: var(--medium-light)";
         orderedList.append(li);
 
         //Name and description container
@@ -76,9 +75,11 @@ function fetchDonatios(cause) {
         contentDiv.setAttribute("class", "ms-2 me-auto");
 
         //Cooktail Name
-        var subheading = document.createElement("div");
+        var subheading = document.createElement("a");
         subheading.textContent = data.nonprofits[index].name;
-        subheading.setAttribute("class", "fs-5 fw-bolder");
+        subheading.setAttribute("class", "fs-6 fw-bolder");
+        subheading.setAttribute("href", data.nonprofits[index].profileUrl);
+        subheading.setAttribute("target","_blank");
         contentDiv.appendChild(subheading);
 
         //image
@@ -92,7 +93,7 @@ function fetchDonatios(cause) {
 
         //Description
         var desciption = document.createElement("p");
-        desciption.setAttribute("class", "fst-italic");
+        desciption.style = "font-size: 13px";
         desciption.textContent = data.nonprofits[index].description;
         contentDiv.appendChild(desciption);
 
@@ -102,6 +103,7 @@ function fetchDonatios(cause) {
     });
 }
 
+// Event listener for the search button inside the Nonprofit search modal
 modalSearch.addEventListener("click", function () {
   if (modalInput.value != null) {
     removeElements(nonprofitList);
@@ -112,7 +114,7 @@ modalSearch.addEventListener("click", function () {
 });
 
 // <--------DRINK STORAGE FUNCTION--------------->
-function drinkStorage(cocktailName, id) {
+function drinkStorage(cocktailName) {
   var searchResult = cocktailName.toLowerCase();
   console.log(previousCocktails.indexOf(searchResult));
   console.log(searchResult);
@@ -128,17 +130,17 @@ function drinkStorage(cocktailName, id) {
     savedDrinks.textContent = "";
 
     console.log(previousCocktails.length);
-    drinkHistory(id);
+    drinkHistory();
   }
 }
 
 // <--------DISPLAY DRINK HISTORY FUNCTION--------------->
-function drinkHistory(id) {
+function drinkHistory() {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
     addedDrink.setAttribute(
-      "onclick",
-      "displayDrinkByName('" + previousCocktails[i] + "');"
+      'onclick',
+      'displayDrinkByName("' + previousCocktails[i] + '");'
     );
     addedDrink.textContent = previousCocktails[i];
     addedDrink.className = "savedDrinks";
