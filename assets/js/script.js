@@ -74,9 +74,11 @@ function fetchDonatios(cause) {
         contentDiv.setAttribute("class", "ms-2 me-auto");
 
         //Cooktail Name
-        var subheading = document.createElement("div");
+        var subheading = document.createElement("a");
         subheading.textContent = data.nonprofits[index].name;
-        subheading.setAttribute("class", "fs-5 fw-bolder");
+        subheading.setAttribute("class", "fs-6 fw-bolder");
+        subheading.setAttribute("href", data.nonprofits[index].profileUrl);
+        subheading.setAttribute("target","_blank");
         contentDiv.appendChild(subheading);
 
         //image
@@ -90,7 +92,7 @@ function fetchDonatios(cause) {
 
         //Description
         var desciption = document.createElement("p");
-        desciption.setAttribute("class", "fst-italic");
+        desciption.style = "font-size: 12px";
         desciption.textContent = data.nonprofits[index].description;
         contentDiv.appendChild(desciption);
 
@@ -136,8 +138,8 @@ function drinkHistory() {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
     addedDrink.setAttribute(
-      "onclick",
-      "displayDrinkByName('" + previousCocktails[i] + "');"
+      'onclick',
+      'displayDrinkByName("' + previousCocktails[i] + '");'
     );
     addedDrink.textContent = previousCocktails[i];
     addedDrink.className = "savedDrinks";

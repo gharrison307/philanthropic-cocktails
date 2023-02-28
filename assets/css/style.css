@@ -42,7 +42,7 @@ nav {
   background-color: var(--medium);
 }
 
-#nav-container a {
+#nav-container .navbar-brand a {
   font-family: "Braton Composer Stamp Rough", sans-serif;
   font-size: 35px;
   color: black;
