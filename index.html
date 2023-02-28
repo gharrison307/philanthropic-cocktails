@@ -25,16 +25,13 @@
     <nav class="navbar bg-body-tertiary">
       <div id="nav-container" class="container-fluid justify-content-between">
         <div></div>
-        <a class="navbar-brand" href="#">
+        <a id="page-title" class="navbar-brand" href="#">
           <img src="./assets/images/cocktail.png" id="martini" alt="Logo" width="45" height="36"
             class="d-inline-block align-text-top">Philanthropic Cocktails
-
-
-
         </a>
         <div>
-          <button id="donateBtn" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#donateModal">Donate
-            for a cause</button>
+          <button id="donateBtn" type="button" class="btn" data-bs-toggle="modal"
+            data-bs-target="#donateModal">Donate</button>
           <div id="donateModal" class="modal fade bd-example-modal-lg">
             <div class="modal-dialog modal-lg">
               <div class="modal-content column">
@@ -50,69 +47,129 @@
                       <button id="search-cause" class="btn btn-outline-secondary" type="button"
                         id="button-addon1">Search</button>
                       <hr />
-                      <datalist id="datalistOptions" class="w-100">
-                        <option value="Animals"></option>
-                        <option value="Humanitarian"></option>
-                        <option value="Environment"></option>
-                        <option value="Education"></option>
-                        <option value="Climate"></option>
+                      <datalist id="causeOptions">
+                        <option value="oceans"></option>
+                        <option value="climate"></option>
+                        <option value="education"></option>
+                        <option value="environment"></option>
+                        <option value="health"></option>
+                        <option value="adoption"></option>
+                        <option value="housing"></option>
+                        <option value="animals"></option>
+                        <option value="athletics"></option>
+                        <option value="autism"></option>
+                        <option value="black-led"></option>
+                        <option value="buddhism"></option>
+                        <option value="cancer"></option>
+                        <option value="cats"></option>
+                        <option value="christianity"></option>
+                        <option value="conservation"></option>
+                        <option value="coronavirus"></option>
+                        <option value="culture"></option>
+                        <option value="dance"></option>
+                        <option value="disabilities"></option>
+                        <option value="disease"></option>
+                        <option value="dogs"></option>
+                        <option value="afghanistan"></option>
+                        <option value="filmandtv"></option>
+                        <option value="food-security"></option>
+                        <option value="freepress"></option>
+                        <option value="gender-equality"></option>
+                        <option value="hinduism"></option>
+                        <option value="humans"></option>
+                        <option value="hurricane-laura"></option>
+                        <option value="immigrants"></option>
+                        <option value="indigenous-led"></option>
+                        <option value="indigenous-peoples"></option>
+                        <option value="islam"></option>
+                        <option value="judaism"></option>
+                        <option value="justice"></option>
+                        <option value="latine-led"></option>
+                        <option value="legal"></option>
+                        <option value="lgbt"></option>
+                        <option value="libraries"></option>
+                        <option value="mental-health"></option>
+                        <option value="middle-east"></option>
+                        <option value="museums"></option>
+                        <option value="music"></option>
+                        <option value="poverty"></option>
+                        <option value="racial-justice"></option>
+                        <option value="refugees"></option>
+                        <option value="religion"></option>
+                        <option value="reproductive-justice"></option>
+                        <option value="research"></option>
+                        <option value="science"></option>
+                        <option value="seniors"></option>
+                        <option value="space"></option>
+                        <option value="theater"></option>
+                        <option value="transgender"></option>
+                        <option value="ukraine"></option>
+                        <option value="veterans"></option>
+                        <option value="visualart"></option>
+                        <option value="votingrights"></option>
+                        <option value="water"></option>
+                        <option value="wildfires"></option>
+                        <option value="wildlife"></option>
+                        <option value="women-led"></option>
+                        <option value="womens-health"></option>
+                        <option value="youth"></option>
                       </datalist>
                     </div>
                     <div id="nonprofit-list">
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <div id="nonprofit-list">
                   </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </nav>
   </header>
   <main <div id="main">
     <section>
       <!-- Search for cocktail or ingredient section -->
       <div id="header-banner" class="rounded-1 border border-dark">
-        <div id="selection" class="d-flex justify-content-center search-label mt-2 w-100">
-          <label for="exampleDataList" class="form-label text-light fs-2 text-center m-1">
-            Click an option to search by Cocktail or Ingredient
-
+        <div id="selection" class="d-flex justify-content-center search-label mt-2 w-100 h-100">
+          <label for="exampleDataList" class="form-label text-light fs-2 text-center m-1 w-50 h-100">
             <!-- Button/divs for selecting cocktail or ingredient -->
-            <div class="row p-2">
-              <div id="option-one" class="card text-light w-50">Search by name</div>
-              <div id="option-two" class="card text-light opacity w-50">Search by ingredient
+            <div class="row w-100 h-100">
+              <div id="option-one" class="card text-light w-50 h-100">Search by name</div>
+              <div id="option-two" class="card text-light opacity w-50 h-100">Search by ingredient
               </div>
             </div>
+
+            <!-- Button for the search bar -->
+            <div class="input-group mb-3 d-flex justify-content-center">
+
+              <button class="btn btn-outline-secondary text-light" type="button" id="searchBtn">Search<i
+                  class="bi bi-search ps-2"></i></button>
+
+
+
+              <!-- Search bar -->
+              <input data-search="cocktail" id="selections" type="text" class="form-control" list="placeholderDrinks"
+                placeholder="Search by cocktail name..." aria-label="Example text with button addon"
+                aria-describedby="button-addon1">
+              <datalist id="placeholderDrinks">
+                <option value="margarita"></option>
+                <option value="rum Sour"></option>
+                <option value="gin"></option>
+                <option value="vodka"></option>
+                <option value="lemon"></option>
+                <option value="mint"></option>
+                <option value="other..."></option>
+              </datalist>
+            </div>
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true"></button>
+            </div>
         </div>
-
-        <!-- Button for the search bar -->
-        <div class="input-group mb-3 d-flex justify-content-center">
-
-          <button class="btn btn-outline-secondary text-light" type="button" id="searchBtn">Search<i
-              class="bi bi-search ps-2"></i></button>
-
-
-
-          <!-- Search bar -->
-          <input data-search="cocktail" id="selections" type="text" class="form-control" list="placeholderDrinks"
-            placeholder="Search by cocktail name..." aria-label="Example text with button addon"
-            aria-describedby="button-addon1">
-          <datalist id="placeholderDrinks">
-            <option value="margarita"></option>
-            <option value="rum Sour"></option>
-            <option value="gin"></option>
-            <option value="vodka"></option>
-            <option value="lemon"></option>
-            <option value="mint"></option>
-            <option value="other..."></option>
-          </datalist>
-        </div>
-        <div class="alert alert-warning alert-dismissable">
-          <button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true"></button>
-        </div>
-      </div>
     </section>
     </section>
     <div id="main-div">
@@ -121,7 +178,7 @@
         <div id="savedDrinks"></div>
       </div>
 
-      <div id="body-area"></div>
+      <div id="body-area" class="d-flex align-items-start"></div>
 
     </div>
     <!-- Modal for Age -->
