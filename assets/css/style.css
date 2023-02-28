@@ -250,9 +250,9 @@ div#option-two {
   font-size: 18px;
 }
 
-input#selections {
+/* input#selections {
   max-width: 50%;
-}
+} */
 
 .hover-action:hover {
   background-color: var(--medium);
