@@ -416,7 +416,3 @@ function displayDrinkByName(name) {
       largeDisplay(data);
     });
 }
-
-function bootstrapAlert() {
-  $(".input").alert("close");
-}
