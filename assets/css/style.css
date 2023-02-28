@@ -32,7 +32,7 @@ body {
   margin: auto;
 }
 
-nav {
+.navbar {
   background-color: var(--medium);
   padding-top: 0;
   margin-top: 0;
@@ -42,7 +42,7 @@ nav {
   background-color: var(--medium);
 }
 
-#nav-container .navbar-brand a {
+#page-title {
   font-family: "Braton Composer Stamp Rough", sans-serif;
   font-size: 35px;
   color: black;
@@ -221,6 +221,7 @@ div#option-one {
   border-bottom: 0;
   border-left: 0;
   border-right: 3px solid aliceblue;
+  min-height: 40px;
 }
 
 div#option-two {
@@ -233,6 +234,7 @@ div#option-two {
   border-bottom: 0;
   border-right: 0;
   border-left: 3px solid aliceblue ;
+  min-height: 40px;
 }
 
 #searchBtn {

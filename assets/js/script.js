@@ -67,6 +67,7 @@ function fetchDonatios(cause) {
           "class",
           "list-group-item d-flex justify-content-between align-items-start hover-action"
         );
+        li.style = "background-color: var(--medium-light)";
         orderedList.append(li);
 
         //Name and description container
@@ -92,7 +93,7 @@ function fetchDonatios(cause) {
 
         //Description
         var desciption = document.createElement("p");
-        desciption.style = "font-size: 12px";
+        desciption.style = "font-size: 13px";
         desciption.textContent = data.nonprofits[index].description;
         contentDiv.appendChild(desciption);
 
