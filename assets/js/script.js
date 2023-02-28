@@ -203,7 +203,7 @@ async function listCocktails(data, endpoint) {
           return response.json();
         })
         .then(function (newdata) {
-          ingredientSummary.textContent = sumIngredients(newdata);
+          ingredientSummary.textContent = sumIngredients(newdata.drinks[0]);
           description.textContent = customTrim(
             newdata.drinks[0].strInstructions
           );
@@ -211,7 +211,7 @@ async function listCocktails(data, endpoint) {
           li.append(contentDiv, image);
         });
     } else {
-      ingredientSummary.textContent = sumIngredients(data);
+      ingredientSummary.textContent = sumIngredients(data.drinks[index]);
       description.textContent = customTrim(data.drinks[index].strInstructions);
       contentDiv.append(ingredientSummary, description);
       li.append(contentDiv, image);
@@ -230,8 +230,8 @@ function removeElements(parent) {
 function sumIngredients(data) {
   var ingredientSummary = "";
   var i = 1;
-  while (data.drinks[0]["strIngredient" + i] != null) {
-    ingredientSummary += data.drinks[0]["strIngredient" + i] + ", ";
+  while (data["strIngredient" + i] != null) {
+    ingredientSummary += data["strIngredient" + i] + ", ";
     i++;
   }
   ingredientSummary = ingredientSummary.substring(
@@ -296,7 +296,7 @@ function largeDisplay(data) {
 
   //   Drink Image Element
   var drinkImgEl = document.createElement("img");
-  drinkImgEl.setAttribute("class", "img-fluid rounded");
+  drinkImgEl.setAttribute("class", "img-fluid rounded border-secondary border-2");
   divImg.appendChild(drinkImgEl);
 
   // Drink Name
@@ -372,7 +372,11 @@ searchBar.addEventListener("keypress", function (event) {
 function search(type, inputText) {
   var endPoint = "";
   var parameter = "";
-  if (type == "cocktail") {
+  if(!alcohol){
+    endPoint = "filter";
+    parameter = "a";
+    inputText = "Non_Alcoholic";
+  }else if (type == "cocktail") {
     endPoint = "search";
     parameter = "s";
   } else {
@@ -395,7 +399,7 @@ function search(type, inputText) {
 $(function () {
   //displaying modal
   $("#ageModal").modal("show");
-
+  
   //Loading a random cocktail
   fetchCocktails("random")
     .then(function (response) {
@@ -438,9 +442,19 @@ function setAgeRestriction(value){
         alcoholSwitch.checked = true;
         alcohol = true;
     } else {
-        alcoholLabel.textContent = value;
-        alcoholSwitch.checked = false;
-        alcohol = false;
+      alcoholLabel.textContent = value;
+      alcoholSwitch.checked = false;
+      alcohol = false;
+      var randomIndex = Math.floor(Math.random() * 58);
+      fetchCocktails("filter", "a", "Non_Alcoholic")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        removeElements(mainEl);
+        console.log(randomIndex);
+        displayDrinkById(data.drinks[randomIndex].idDrink);
+      });
     }
 }
 
@@ -452,5 +466,15 @@ alcoholSwitch.addEventListener("click",function(){
     }else{
         alcoholLabel.textContent = "Non-alcoholic";
         slcohol = false;
+        var randomIndex = Math.floor(Math.random() * 58);
+        fetchCocktails("filter", "a", "Non_Alcoholic")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          removeElements(mainEl);
+          console.log(randomIndex);
+          displayDrinkById(data.drinks[randomIndex].idDrink);
+        });
     }
 });

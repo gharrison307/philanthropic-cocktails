@@ -9,7 +9,7 @@
   --medium-dark: #65647c;
   --dark: #222831;
   --font-fam-1: "Gloock", serif;
-  --ingredient-color: #916028;
+  --ingredient-color: #ac722f;
 }
 
 * {
@@ -256,6 +256,7 @@ div#option-two {
 
 .hover-action:hover {
   background-color: var(--medium);
+  color: var(--extra-light);
   cursor: pointer;
 }
 
