@@ -42,7 +42,7 @@ nav {
   background-color: var(--medium);
 }
 
-#nav-container a {
+#nav-container h1 {
   font-family: "Braton Composer Stamp Rough", sans-serif;
   font-size: 35px;
   color: black;
@@ -56,7 +56,7 @@ nav {
   flex-direction: row;
   width: 100%;
   min-height: 30px;
-  background-color: #d0b8a8;;
+  background-color: #d0b8a8;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
@@ -112,10 +112,10 @@ nav {
   justify-content: center;
   align-items: center;
 }
-h1 {
+/* h1 {
   text-align: center;
   font: white;
-}
+} */
 h2 {
   text-align: center;
   font: white;
@@ -231,6 +231,7 @@ div#option-two {
   background-color: var(--medium);
   border-color: aliceblue;
   width: 10%;
+  min-width: 20%;
   text-shadow: 1px 1px 2px var(--dark);
   font-size: 18px;
 }
@@ -242,4 +243,26 @@ input#selections {
 .hover-action:hover {
   background-color: var(--medium);
   cursor: pointer;
+}
+
+@media screen and (max-width: 788px) {
+  #nav-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  div#main-div {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  #savedDrinks {
+    display: flex;
+    flex-wrap: wrap;
+    order: 0;
+  }
+
+  #sidebar-div {
+    order: 1;
+  }
 }
