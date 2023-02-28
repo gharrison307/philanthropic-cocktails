@@ -150,9 +150,18 @@
             class="bi bi-search ps-2"></i></button>
 
         <!-- Search bar -->
-        <input data-search="cocktail" id="selections" type="text" class="form-control"
+        <input data-search="cocktail" id="selections" type="text" class="form-control" list="placeholderDrinks"
           placeholder="Search by cocktail name..." aria-label="Example text with button addon"
           aria-describedby="button-addon1">
+        <datalist id="placeholderDrinks">
+          <option value="margarita"></option>
+          <option value="rum Sour"></option>
+          <option value="gin"></option>
+          <option value="vodka"></option>
+          <option value="lemon"></option>
+          <option value="mint"></option>
+          <option value="other..."></option>
+        </datalist>
       </div>
     </div>
 
