@@ -83,7 +83,7 @@ function fetchDonatios(cause) {
         subheading.textContent = data.nonprofits[index].name;
         subheading.setAttribute("class", "fs-6 fw-bolder");
         subheading.setAttribute("href", data.nonprofits[index].profileUrl);
-        subheading.setAttribute("target","_blank");
+        subheading.setAttribute("target", "_blank");
         contentDiv.appendChild(subheading);
 
         //image
@@ -143,7 +143,7 @@ function drinkHistory() {
   for (i = 0; i < previousCocktails.length; i++) {
     var addedDrink = document.createElement("button");
     addedDrink.setAttribute(
-      'onclick',
+      "onclick",
       'displayDrinkByName("' + previousCocktails[i] + '");'
     );
     addedDrink.textContent = previousCocktails[i];
@@ -336,7 +336,10 @@ searchButton.addEventListener("click", function () {
   if (searchBar.value != "") {
     search(searchBar.dataset.search, searchBar.value);
   } else {
-    window.alert("Please enter a ingredient or cocktail name.");
+    selections.setAttribute("style", "border: solid red 3px");
+    setTimeout(function () {
+      selections.setAttribute("style", "");
+    }, 1000);
   }
 });
 

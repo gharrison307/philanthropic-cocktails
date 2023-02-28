@@ -234,7 +234,7 @@ div#option-two {
   border-top: 0;
   border-bottom: 0;
   border-right: 0;
-  border-left: 3px solid aliceblue ;
+  border-left: 3px solid aliceblue;
   min-height: 40px;
 }
 
@@ -323,11 +323,11 @@ input#selections {
   }
 }
 
-div#option-one:hover{
+div#option-one:hover {
   border: 2px solid var(--medium-light);
   opacity: 0.7;
-} 
-div#option-two:hover{
+}
+div#option-two:hover {
   border: 2px solid var(--medium-light);
   opacity: 0.7;
 }
