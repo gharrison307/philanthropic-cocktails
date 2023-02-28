@@ -24,7 +24,10 @@
   <header>
     <nav class="navbar bg-body-tertiary">
       <div id="nav-container" class="container-fluid justify-content-between">
-        <div></div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label id="alcoholLabel" class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </div>
         <a id="page-title" class="navbar-brand" href="#">
           <img src="./assets/images/cocktail.png" id="martini" alt="Logo" width="45" height="36"
             class="d-inline-block align-text-top">Philanthropic Cocktails
@@ -38,82 +41,82 @@
                 <div class="modal-header">
                   <h3>Choose Your Cause</h3>
                 </div class="modal-body">
-                <div id="cause-search" class="container-fluid text-center">
-                  <div class="row">
-                    <div class="input-group mb-3">
-                      <input id="text-cause" type="text" class="form-control" list="causeOptions"
-                        aria-label="Example text with button addon" aria-describedby="button-addon1"
-                        placeholder="Environment, Animals, etc.">
-                      <button id="search-cause" class="btn btn-outline-secondary" type="button"
-                        id="button-addon1">Search</button>
-                      <hr />
-                      <datalist id="causeOptions">
-                        <option value="oceans"></option>
-                        <option value="climate"></option>
-                        <option value="education"></option>
-                        <option value="environment"></option>
-                        <option value="health"></option>
-                        <option value="adoption"></option>
-                        <option value="housing"></option>
-                        <option value="animals"></option>
-                        <option value="athletics"></option>
-                        <option value="autism"></option>
-                        <option value="black-led"></option>
-                        <option value="buddhism"></option>
-                        <option value="cancer"></option>
-                        <option value="cats"></option>
-                        <option value="christianity"></option>
-                        <option value="conservation"></option>
-                        <option value="coronavirus"></option>
-                        <option value="culture"></option>
-                        <option value="dance"></option>
-                        <option value="disabilities"></option>
-                        <option value="disease"></option>
-                        <option value="dogs"></option>
-                        <option value="afghanistan"></option>
-                        <option value="filmandtv"></option>
-                        <option value="food-security"></option>
-                        <option value="freepress"></option>
-                        <option value="gender-equality"></option>
-                        <option value="hinduism"></option>
-                        <option value="humans"></option>
-                        <option value="hurricane-laura"></option>
-                        <option value="immigrants"></option>
-                        <option value="indigenous-led"></option>
-                        <option value="indigenous-peoples"></option>
-                        <option value="islam"></option>
-                        <option value="judaism"></option>
-                        <option value="justice"></option>
-                        <option value="latine-led"></option>
-                        <option value="legal"></option>
-                        <option value="lgbt"></option>
-                        <option value="libraries"></option>
-                        <option value="mental-health"></option>
-                        <option value="middle-east"></option>
-                        <option value="museums"></option>
-                        <option value="music"></option>
-                        <option value="poverty"></option>
-                        <option value="racial-justice"></option>
-                        <option value="refugees"></option>
-                        <option value="religion"></option>
-                        <option value="reproductive-justice"></option>
-                        <option value="research"></option>
-                        <option value="science"></option>
-                        <option value="seniors"></option>
-                        <option value="space"></option>
-                        <option value="theater"></option>
-                        <option value="transgender"></option>
-                        <option value="ukraine"></option>
-                        <option value="veterans"></option>
-                        <option value="visualart"></option>
-                        <option value="votingrights"></option>
-                        <option value="water"></option>
-                        <option value="wildfires"></option>
-                        <option value="wildlife"></option>
-                        <option value="women-led"></option>
-                        <option value="womens-health"></option>
-                        <option value="youth"></option>
-                      </datalist>
+                  <div id="cause-search" class="container-fluid text-center">
+                    <div class="row">
+                      <div class="input-group mb-3">
+                        <input id="text-cause" type="text" class="form-control border-secondary border-2" list="causeOptions" aria-label="Example text with button addon" aria-describedby="button-addon1" placeholder="Environment, Animals, etc.">
+                        <button id="search-cause" class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+                        <hr />
+                        <datalist id="causeOptions">
+                          <option value="oceans"></option>
+                          <option value="climate"></option>
+                          <option value="education"></option>
+                          <option value="environment"></option>
+                          <option value="health"></option>
+                          <option value="adoption"></option>
+                          <option value="housing"></option>
+                          <option value="animals"></option>
+                          <option value="athletics"></option>
+                          <option value="autism"></option>
+                          <option value="black-led"></option>
+                          <option value="buddhism"></option>
+                          <option value="cancer"></option>
+                          <option value="cats"></option>
+                          <option value="christianity"></option>
+                          <option value="conservation"></option>
+                          <option value="coronavirus"></option>
+                          <option value="culture"></option>
+                          <option value="dance"></option>
+                          <option value="disabilities"></option>
+                          <option value="disease"></option>
+                          <option value="dogs"></option>
+                          <option value="afghanistan"></option>
+                          <option value="filmandtv"></option>
+                          <option value="food-security"></option>
+                          <option value="freepress"></option>
+                          <option value="gender-equality"></option>
+                          <option value="hinduism"></option>
+                          <option value="humans"></option>
+                          <option value="hurricane-laura"></option>
+                          <option value="immigrants"></option>
+                          <option value="indigenous-led"></option>
+                          <option value="indigenous-peoples"></option>
+                          <option value="islam"></option>
+                          <option value="judaism"></option>
+                          <option value="justice"></option>
+                          <option value="latine-led"></option>
+                          <option value="legal"></option>
+                          <option value="lgbt"></option>
+                          <option value="libraries"></option>
+                          <option value="mental-health"></option>
+                          <option value="middle-east"></option>
+                          <option value="museums"></option>
+                          <option value="music"></option>
+                          <option value="poverty"></option>
+                          <option value="racial-justice"></option>
+                          <option value="refugees"></option>
+                          <option value="religion"></option>
+                          <option value="reproductive-justice"></option>
+                          <option value="research"></option>
+                          <option value="science"></option>
+                          <option value="seniors"></option>
+                          <option value="space"></option>
+                          <option value="theater"></option>
+                          <option value="transgender"></option>
+                          <option value="ukraine"></option>
+                          <option value="veterans"></option>
+                          <option value="visualart"></option>
+                          <option value="votingrights"></option>
+                          <option value="water"></option>
+                          <option value="wildfires"></option>
+                          <option value="wildlife"></option>
+                          <option value="women-led"></option>
+                          <option value="womens-health"></option>
+                          <option value="youth"></option>
+                        </datalist>
+                      </div>
+                      <div id="nonprofit-list">
+                      </div>
                     </div>
                     <div id="nonprofit-list">
                     </div>
@@ -145,7 +148,7 @@
             </div>
 
             <!-- Button for the search bar -->
-            <div class="input-group mb-3 d-flex justify-content-center">
+            <div class="input-group d-flex justify-content-center m-3 w-80">
 
               <button class="btn btn-outline-secondary text-light" type="button" id="searchBtn">Search<i
                   class="bi bi-search ps-2"></i></button>
@@ -174,7 +177,7 @@
     </section>
     <div id="main-div">
       <div id="sidebar-div">
-        <h3 id="savedDrinksBar" class="col-3">Saved Drinks</h3>
+        <h3 id="savedDrinksBar" class="col-3">Explored Drinks</h3>
         <div id="savedDrinks"></div>
       </div>
 
@@ -190,51 +193,51 @@
           </div class="modal-body">
           <div class="container-fluid text-center">
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-secondary" onclick="setAgeRestriction('Alcoholic')" data-bs-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-secondary" onclick="setAgeRestriction('Non-alcoholic')" data-bs-dismiss="modal">No</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    </section>
-  </main>
-  <footer>
-    <div class="container" id="footer-div">
-      <h3>Son's Of J</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
-        asperiores. Tempore totam ullam nam?
-      </p>
-      <ul class="socials">
-        <li>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-google"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-linkedin-square"></i></a>
-        </li>
-      </ul>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <script src="./assets/js/script.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    </div>
-    <div class="footer-bottom">
-      <p>copyright &copy;2023 SonsofJ. designed by<span>Team</span></p>
-    </div>
-  </footer>
+  </div>
+</section>
+</main>
+  <footer class="w-90">
+  <div class="container w-90" id="footer-div">
+    <h3>Son's Of J</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+      asperiores. Tempore totam ullam nam?
+    </p>
+    <ul class="socials">
+      <li>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-google"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-linkedin-square"></i></a>
+      </li>
+    </ul>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+  </div>
+  <div class="footer-bottom">
+    <p>copyright &copy;2023 SonsofJ. designed by<span>Team</span></p>
+  </div>
+</footer>
 </body>
 
 </html>

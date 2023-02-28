@@ -10,6 +10,10 @@ var searchBar = document.getElementById("selections");
 var searchButton = document.getElementById("searchBtn");
 var optionOne = document.getElementById("option-one");
 var optionTwo = document.getElementById("option-two");
+var donateBtn = document.getElementById("donateBtn");
+var alcohol;
+var alcoholLabel = document.getElementById("alcoholLabel");
+var alcoholSwitch = document.getElementById("flexSwitchCheckDefault");
 
 //Nonprofit modal elements
 var modalInput = document.getElementById("text-cause");
@@ -93,7 +97,7 @@ function fetchDonatios(cause) {
 
         //Description
         var desciption = document.createElement("p");
-        desciption.style = "font-size: 13px";
+        desciption.style = "font-size: 14px";
         desciption.textContent = data.nonprofits[index].description;
         contentDiv.appendChild(desciption);
 
@@ -145,7 +149,6 @@ function drinkHistory() {
     addedDrink.textContent = previousCocktails[i];
     addedDrink.className = "savedDrinks";
     savedDrinks.appendChild(addedDrink);
-    console.log(addedDrink);
   }
 }
 
@@ -190,6 +193,7 @@ async function listCocktails(data, endpoint) {
     //Description & Ingredients
     var ingredientSummary = document.createElement("span");
     ingredientSummary.setAttribute("class", "fst-italic fw-semibold");
+    ingredientSummary.style = "color: var(--ingredient-color);";
     var description = document.createElement("p");
 
     // fetch data by cooktail id if previously not available
@@ -239,8 +243,8 @@ function sumIngredients(data) {
 
 //Custom trim to fit text in the list
 function customTrim(description) {
-  if (description.length > 120) {
-    description = description.substring(0, 120) + "...";
+  if (description.length > 130) {
+    description = description.substring(0, 130) + "...";
   }
   return description;
 }
@@ -249,7 +253,7 @@ function customTrim(description) {
 function largeDisplay(data) {
   //  Large Display Card
   var div1 = document.createElement("div");
-  div1.setAttribute("class", "card mb-3");
+  div1.setAttribute("class", "card mb-3 w-100");
   div1.setAttribute("style", "max-width: 100% largeDisplay");
   div1.setAttribute("style", "opacity: 1");
   mainEl.appendChild(div1);
@@ -281,6 +285,11 @@ function largeDisplay(data) {
   var drinkDescriptionEl = document.createElement("p");
   div4.appendChild(drinkDescriptionEl);
 
+  //Donate button
+  var newBtn = donateBtn.cloneNode();
+  newBtn.textContent = "Choose to donate!"
+  div4.appendChild(newBtn);
+
   divImg = document.createElement("div");
   divImg.setAttribute("class", "col-md-6");
   div2.appendChild(divImg);
@@ -291,7 +300,6 @@ function largeDisplay(data) {
   divImg.appendChild(drinkImgEl);
 
   // Drink Name
-  console.log(data.drinks[0].strDrink);
   drinkNameEl.textContent = data.drinks[0].strDrink;
 
   //   Ingredients
@@ -302,12 +310,13 @@ function largeDisplay(data) {
   var i = 1;
   while (data.drinks[0]["strIngredient" + i] != null) {
     var listItems = document.createElement("li");
+    listItems.style = "color: var(--ingredient-color)"
     if (data.drinks[0]["strMeasure" + i] == null) {
       listItems.textContent = data.drinks[0]["strIngredient" + i];
       ingredientsList.appendChild(listItems);
     } else {
       listItems.textContent =
-        data.drinks[0]["strMeasure" + i] + data.drinks[0]["strIngredient" + i];
+        data.drinks[0]["strMeasure" + i] + " " + data.drinks[0]["strIngredient" + i];
       ingredientsList.appendChild(listItems);
     }
     i++;
@@ -315,11 +324,10 @@ function largeDisplay(data) {
 
   // Drink Image
   drinkImgEl.setAttribute("src", data.drinks[0].strDrinkThumb);
-  console.log(data.drinks[0].strDrinkThumb);
 
   //Drink Instructions
   drinkDescriptionEl.textContent =
-    "Instructions: " + data.drinks[0].strInstructions;
+    "Instructions :  " + data.drinks[0].strInstructions;
 
   drinkStorage(data.drinks[0].strDrink, data.drinks[0].idDrink);
 }
@@ -394,7 +402,6 @@ $(function () {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       removeElements(mainEl);
       largeDisplay(data);
     });
@@ -423,3 +430,27 @@ function displayDrinkByName(name) {
       largeDisplay(data);
     });
 }
+
+//Set the alcohol global variable and siplay the choiche selected
+function setAgeRestriction(value){
+    if (value == "Alcoholic") {
+        alcoholLabel.textContent = value;
+        alcoholSwitch.checked = true;
+        alcohol = true;
+    } else {
+        alcoholLabel.textContent = value;
+        alcoholSwitch.checked = false;
+        alcohol = false;
+    }
+}
+
+//event listener for switches
+alcoholSwitch.addEventListener("click",function(){
+    if(alcoholSwitch.checked){
+        alcoholLabel.textContent = "Alcoholic";
+        alcohol = true;
+    }else{
+        alcoholLabel.textContent = "Non-alcoholic";
+        slcohol = false;
+    }
+});
