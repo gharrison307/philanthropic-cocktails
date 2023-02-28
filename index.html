@@ -24,7 +24,10 @@
   <header>
     <nav class="navbar bg-body-tertiary">
       <div id="nav-container" class="container-fluid justify-content-between">
-        <div></div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label id="alcoholLabel" class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </div>
         <a id="page-title" class="navbar-brand" href="#">
           <img src="./assets/images/cocktail.png" id="martini" alt="Logo" width="45" height="36"
             class="d-inline-block align-text-top">Philanthropic Cocktails
@@ -40,7 +43,7 @@
                   <div id="cause-search" class="container-fluid text-center">
                     <div class="row">
                       <div class="input-group mb-3">
-                        <input id="text-cause" type="text" class="form-control" list="causeOptions" aria-label="Example text with button addon" aria-describedby="button-addon1" placeholder="Environment, Animals, etc.">
+                        <input id="text-cause" type="text" class="form-control border-secondary border-2" list="causeOptions" aria-label="Example text with button addon" aria-describedby="button-addon1" placeholder="Environment, Animals, etc.">
                         <button id="search-cause" class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
                         <hr />
                         <datalist id="causeOptions">
@@ -127,8 +130,8 @@
         </div>
     </nav>
   </header>
-<main
-  <div id="main"> <section>
+<main>
+  <section id="main">
     <!-- Search for cocktail or ingredient section -->
     <div id="header-banner" class="rounded-1 border border-dark">
       <div id="selection" class="d-flex justify-content-center search-label mt-2 w-100 h-100">
@@ -165,7 +168,7 @@
   </section>
     <div id="main-div">
       <div id="sidebar-div">
-        <h3 id="savedDrinksBar" class="col-3">Saved Drinks</h3>
+        <h3 id="savedDrinksBar" class="col-3">Explored Drinks</h3>
         <div id="savedDrinks"></div>
       </div>
 
@@ -181,8 +184,8 @@
           </div class="modal-body">
           <div class="container-fluid text-center">
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-secondary" onclick="setAgeRestriction('Alcoholic')" data-bs-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-secondary" onclick="setAgeRestriction('Non-alcoholic')" data-bs-dismiss="modal">No</button>
             </div>
           </div>
         </div>
@@ -191,8 +194,8 @@
   </div>
 </section>
 </main>
-  <footer>
-  <div class="container" id="footer-div">
+  <footer class="w-90">
+  <div class="container w-90" id="footer-div">
     <h3>Son's Of J</h3>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,

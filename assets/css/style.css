@@ -9,6 +9,7 @@
   --medium-dark: #65647c;
   --dark: #222831;
   --font-fam-1: "Gloock", serif;
+  --ingredient-color: #916028;
 }
 
 * {
@@ -329,4 +330,20 @@ div#option-one:hover{
 div#option-two:hover{
   border: 2px solid var(--medium-light);
   opacity: 0.7;
+}
+
+#donateBtn:hover{
+  background-color: var(--medium-dark);
+}
+
+#flexSwitchCheckDefault{
+  border: 0.3rem solid var(--medium-light);
+  padding: .5rem;
+  padding-left: 2.5rem;
+  padding-bottom: .7rem;
+}
+
+#alcoholLabel{
+  color: var(--extra-light);
+  padding: 0.5rem;
 }
